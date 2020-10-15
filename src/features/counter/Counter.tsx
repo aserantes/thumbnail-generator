@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, fetchInitial } from "./CounterSlice";
 import { RootState } from "store";
 import styled from "@emotion/styled";
+import Lala from "../Lala/Lala";
 
 const Container = styled.div``;
 
@@ -55,7 +56,10 @@ const Counter: React.FC = () => {
       {loading ? (
         <Loading data-testid="counter-loading">Loading...</Loading>
       ) : (
-        <Value data-testid="counter-value">{count}</Value>
+        <div>
+          <Value data-testid="counter-value">{count}</Value>
+          <Lala></Lala>
+        </div>
       )}
 
       <div>
