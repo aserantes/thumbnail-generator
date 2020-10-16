@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Action, combineReducers } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
-import counterReducer from "./features/counter/CounterSlice";
+import { imagePreviewReducer as imagePreview } from "./features/ImagePreview";
 
 export const rootReducer = combineReducers({
-  counter: counterReducer,
+  imagePreview,
 });
 
 const store = configureStore({
@@ -13,7 +13,9 @@ const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
+
 export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
+
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
