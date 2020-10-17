@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders 1`] = `
+<DocumentFragment>
+  <div
+    class="css-14jqeis"
+  >
+    <div>
+      App Component
+    </div>
+    <div
+      class="css-17ztkzs"
+    >
+      <button
+        class="css-uxd16r"
+        data-testid="button"
+      >
+        change test
+      </button>
+      <input
+        class="css-qafjh4"
+        data-testid="input"
+        value=""
+      />
+      <div>
+        ImagePreview Component
+      </div>
+      <div
+        data-testid="div"
+      >
+        reduxStringInitialState
+      </div>
+    </div>
+    <div
+      class="css-1w5jlbf"
+    >
+      ImageSelector Component
+    </div>
+    <div
+      class="css-119czso"
+    >
+      <div>
+        Thumbnails Component
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

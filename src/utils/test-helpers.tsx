@@ -23,3 +23,22 @@ export const renderWithRedux = (
     mockStore: store,
   };
 };
+
+export const greenPixelBase64 =
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAEBgIApD5fRAAAAABJRU5ErkJggg==";
+
+export const redPixelBase64 =
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==";
+
+/* export default function({ name = 'file.txt', size = 1024, type = 'plain/txt', lastModified = new Date() }) {
+    const blob = new Blob(['a'.repeat(size)], { type });
+
+    blob.lastModifiedDate = lastModified;
+
+    return new File([blob], name);
+}
+
+const testFile = MockFile({
+     type: 'image/png',
+     size: 50000,
+}); */

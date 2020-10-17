@@ -9,7 +9,7 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   background-color: gray;
-  padding: 20px;
+  padding: 20p;
 `;
 
 export const App = () => {

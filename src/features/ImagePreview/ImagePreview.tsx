@@ -32,10 +32,12 @@ export const ImagePreview = () => {
 
   return (
     <Container>
-      <Button onClick={handleClick}>change test</Button>
-      <Input value={textInput} onChange={handleChange} />
+      <Button data-testid="button" onClick={handleClick}>
+        change test
+      </Button>
+      <Input data-testid="input" value={textInput} onChange={handleChange} />
       <div>ImagePreview Component</div>
-      <div>{test}</div>
+      <div data-testid="div">{test}</div>
     </Container>
   );
 };

@@ -1,6 +1,8 @@
 {
   "name": "thumbnail-generator",
+  "author": "aserantes@gmail.com",
   "version": "0.1.0",
+  "license": "ISC",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -9,7 +11,7 @@
     "@testing-library/dom": "^7.21.1",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.7",
-    "@testing-library/user-event": "^12.0.11",
+    "@testing-library/user-event": "^12.1.8",
     "@types/jest": "^26.0.5",
     "@types/node": "^14.0.23",
     "@types/react": "^16.9.43",

@@ -1,9 +1,16 @@
 {
-  "workbench.settings.editor": "json",
+  "editor.fontFamily": "Cascadia Code PL",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "javascript.format.enable": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.suggestSelection": "first",
+  "editor.codeActionsOnSave": { "source.fixAll": true },
+  "[javascript]": { "editor.formatOnSave": false },
+  "[typescript]": { "editor.formatOnSave": false },
+
+  "prettier.disableLanguages": ["ts", "tsx", "js", "jsx"],
+
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.packageManager": "yarn",
   "eslint.validate": [
     "javascript",
@@ -11,9 +18,15 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "[javascript]": { "editor.formatOnSave": false },
-  "[typescript]": { "editor.formatOnSave": false },
-  "editor.codeActionsOnSave": { "source.fixAll": true },
-  "editor.codeActionsOnSaveTimeout": 4000
+
+  "terminal.integrated.shell.windows": "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "terminal.integrated.fontFamily": "Cascadia Code PL",
+
+  "liveServer.settings.donotShowInfoMsg": true,
+
+  "files.autoSave": "off",
+
+  "git.suggestSmartCommit": false,
+
+  "workbench.settings.editor": "json"
 }
