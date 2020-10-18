@@ -1,12 +1,18 @@
-/*
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import user from "@testing-library/user-event";
-*/
-export {};
+import { render, screen } from "utils/test-helpers";
+import { ImageSelector } from "features/ImageSelector";
 
 describe("<ImageSelector />", () => {
-  it("should match snapshot", () => {});
+  it("should render", () => {
+    render(<ImageSelector />);
+    const component = screen.getByTestId("ImageSelector");
+
+    expect(component).toBeInTheDocument();
+  });
+
+  it("should match snapshot", () => {
+    expect(render(<ImageSelector />).asFragment()).toMatchSnapshot();
+  });
 
   it("should show validation error if selected file > 5Mb", () => {});
 

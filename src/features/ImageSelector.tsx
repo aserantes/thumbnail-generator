@@ -7,5 +7,9 @@ const Container = styled.div`
 `;
 
 export const ImageSelector = () => {
-  return <Container>ImageSelector Component</Container>;
+  return (
+    <Container data-testid="ImageSelector">
+      <div>ImageSelector Component</div>
+    </Container>
+  );
 };

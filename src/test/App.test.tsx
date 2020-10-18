@@ -1,19 +1,26 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "utils/test-helpers";
 import { App } from "App";
 
-export {};
-
 describe("<App />", () => {
+  it("should render", () => {
+    render(<App />);
+    const component = screen.getByTestId("App");
+
+    expect(component).toBeInTheDocument();
+  });
+
+  it("should match snapshot", () => {
+    expect(render(<App />).asFragment()).toMatchSnapshot();
+  });
+
   it("should show ImageSelector if no valid file is selected", () => {});
 
   it("should show ImagePreview if valid file is selected", () => {});
 
   it("should show Thumbails if fetch is fulfilled", () => {});
 
-  it("renders", () => {
-    expect(render(<App />).asFragment()).toMatchSnapshot();
-  });
+  /*    */
 });
 
 /*

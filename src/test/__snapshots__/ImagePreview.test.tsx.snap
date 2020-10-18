@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImagePreview /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-17ztkzs"
+    data-testid="ImagePreview"
+  >
+    <button
+      class="css-uxd16r"
+      data-testid="button"
+    >
+      change test
+    </button>
+    <input
+      class="css-qafjh4"
+      data-testid="input"
+      value=""
+    />
+    <div>
+      ImagePreview Component
+    </div>
+    <div
+      data-testid="div"
+    >
+      reduxStringInitialState
+    </div>
+  </div>
+</DocumentFragment>
+`;

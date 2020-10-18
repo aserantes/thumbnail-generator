@@ -15,7 +15,7 @@ const Container = styled.div`
 export const App = () => {
   return (
     <Provider store={store}>
-      <Container>
+      <Container data-testid="App">
         <div>App Component</div>
         <ImagePreview />
         <ImageSelector />

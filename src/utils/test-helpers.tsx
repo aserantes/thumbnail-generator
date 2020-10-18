@@ -24,6 +24,7 @@ export const renderWithRedux = (
   };
 };
 
+// https://png-pixel.com/
 export const greenPixelBase64 =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAEBgIApD5fRAAAAABJRU5ErkJggg==";
 
@@ -42,3 +43,5 @@ const testFile = MockFile({
      type: 'image/png',
      size: 50000,
 }); */
+
+export * from "@testing-library/react";

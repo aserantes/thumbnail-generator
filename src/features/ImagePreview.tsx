@@ -31,7 +31,7 @@ export const ImagePreview = () => {
   };
 
   return (
-    <Container>
+    <Container data-testid="ImagePreview">
       <Button data-testid="button" onClick={handleClick}>
         change test
       </Button>

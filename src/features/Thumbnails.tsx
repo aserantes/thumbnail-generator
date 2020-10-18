@@ -8,7 +8,7 @@ const Container = styled.div`
 
 export const Thumbnails = () => {
   return (
-    <Container>
+    <Container data-testid="Thumbnails">
       <div>Thumbnails Component</div>
     </Container>
   );

@@ -1,13 +1,18 @@
-/*
 import React from "react";
-import { screen, fireEvent } from "@testing-library/react";
-import { ImagePreview, imagePreviewReducer, changeTest } from "./";
-import { renderWithRedux, rootInitialState } from "../../utils/test-helpers";
-*/
-export {};
+import { renderWithRedux, screen } from "utils/test-helpers";
+import { ImagePreview } from "features/ImagePreview";
 
 describe("<ImagePreview />", () => {
-  it("should match snapshot", () => {});
+  it("should render", () => {
+    renderWithRedux(<ImagePreview />);
+    const component = screen.getByTestId("ImagePreview");
+
+    expect(component).toBeInTheDocument();
+  });
+
+  it("should match snapshot", () => {
+    expect(renderWithRedux(<ImagePreview />).asFragment()).toMatchSnapshot();
+  });
 
   it("should show the image preview", () => {});
 

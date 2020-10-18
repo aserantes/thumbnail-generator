@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageSelector /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1w5jlbf"
+    data-testid="ImageSelector"
+  >
+    <div>
+      ImageSelector Component
+    </div>
+  </div>
+</DocumentFragment>
+`;
