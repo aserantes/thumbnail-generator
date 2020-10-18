@@ -50,7 +50,7 @@
     "no-var": 2,
     "object-shorthand": 2,
     "no-useless-rename": 2,
-    "spaced-comment": [2, "always"]
+    "spaced-comment": [2, "always", { "markers": ["/"] }]
   },
   "overrides": [
     {

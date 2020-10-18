@@ -1,10 +1,10 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { ImagePreview } from "features/ImagePreview";
 import { ImageSelector } from "features/ImageSelector";
+import { ImagePreview } from "features/ImagePreview";
 import { Thumbnails } from "features/Thumbnails";
 
-import store from "../store";
+import { store } from "store/index";
 import styled from "@emotion/styled";
 
 const Container = styled.div`

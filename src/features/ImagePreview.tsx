@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeTest } from "./";
+import { changeTest } from "store/ImagePreviewSlice";
 import { RootState } from "store";
 import styled from "@emotion/styled";
 

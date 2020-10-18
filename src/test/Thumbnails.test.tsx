@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Thumbnails } from "./";
+import { Thumbnails } from "features/Thumbnails";
 
 test("renders component name", () => {
   render(<Thumbnails />);

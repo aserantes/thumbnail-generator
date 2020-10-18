@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 // TODO import the initial state of all slices, not just this example:
-import { initialState as imagePreviewInitialState } from "features/ImagePreview";
+import { initialState as imagePreviewInitialState } from "store/ImagePreviewSlice";
 import { RootState } from "store";
 
 export const rootInitialState = {

@@ -4,10 +4,6 @@ interface InitialState {
   test: string;
 }
 
-interface InitialState {
-  test: string;
-}
-
 export const initialState: InitialState = {
   test: "reduxStringInitialState",
 };
