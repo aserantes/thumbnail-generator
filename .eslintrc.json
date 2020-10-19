@@ -9,11 +9,11 @@
   "plugins": [
     "sort-destructure-keys",
     "sort-imports-es6-autofix",
-    "prettier",
-    "react"
+    "react",
+    "prettier"
   ],
   "rules": {
-    "no-use-before-define": 0,
+    "prettier/prettier": 2,
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
@@ -82,13 +82,16 @@
         "ignoreMemberSort": false,
         "memberSyntaxSortOrder": ["single", "multiple", "none", "all"]
       }
-    ]
+    ],
+    "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }],
+    "no-use-before-define": 0
   },
   "overrides": [
     {
       "files": ["**/*.tsx"],
       "rules": {
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "no-use-before-define": 0
       }
     },
     {

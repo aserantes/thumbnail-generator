@@ -20,9 +20,9 @@
   "gitlens.hovers.enabled": false,
 
   "liveServer.settings.donotShowInfoMsg": true,
-  
+
   "eslint.codeAction.showDocumentation": {
     "enable": true
-},
-"typescript.tsdk": "node_modules\\typescript\\lib",
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
