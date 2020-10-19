@@ -25,7 +25,7 @@ export const validateFile = (fileInfo: FileInfo) => {
 
   const lala = "lala".includes("la");
 
-  console.log(lala);
+  console.log(`.includes funciona OK?: ${lala}`);
 
   if (size > MAX_FILE_SIZE) errors.push(MAX_FILE_SIZE_ERROR);
 

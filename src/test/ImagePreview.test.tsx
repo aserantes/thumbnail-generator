@@ -78,6 +78,4 @@ describe("<ImagePreview />", () => {
     ).toEqual({ ...rootInitialState.imagePreview, test: "hola" });
   });
 
-
-
 */
