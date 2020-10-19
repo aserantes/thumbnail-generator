@@ -1,13 +1,13 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { ImageSelector } from "features/ImageSelector";
-import { ImagePreview } from "features/ImagePreview";
-import { Thumbnails } from "features/Thumbnails";
-
-import { store } from "store/index";
 import styled from "@emotion/styled";
+import { Header } from "Components/Header";
+import { ImagePreview } from "Features/ImagePreview";
+import { ImageSelector } from "Features/ImageSelector";
+import { Provider } from "react-redux";
+import { Thumbnails } from "Features/Thumbnails";
+import { store } from "Store/index";
 
-const Container = styled.div`
+const Container = styled.section`
   background-color: gray;
   padding: 20p;
 `;
@@ -15,7 +15,8 @@ const Container = styled.div`
 export const App = () => {
   return (
     <Provider store={store}>
-      <Container data-testid="App">
+      <Container data-testid="App-wrapper">
+        <Header />
         <div>App Component</div>
         <ImagePreview />
         <ImageSelector />

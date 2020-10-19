@@ -1,15 +1,121 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled from "@emotion/styled";
+import { setFileToUploadData } from "Store/fileToUploadSlice";
+import { useDispatch } from "react-redux";
+import { validateFile } from "Utils/validateFile";
 
-const Container = styled.div`
+const Container = styled.section`
   background-color: orange;
   padding: 20px;
 `;
+const Input = styled.input``;
 
 export const ImageSelector = () => {
+  const dispatch = useDispatch();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const { name, size, type } = file;
+
+      console.log(`as args (size:${size}, type:${type})`);
+
+      const errors = validateFile({ size, type });
+
+      console.log("validate return: ", errors);
+
+      const reader = new FileReader();
+
+      if (!errors) {
+        reader.onload = () => {
+          const image = reader.result;
+
+          dispatch(setFileToUploadData({ type, name, size, image }));
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        console.log(errors);
+      }
+    }
+  };
+
   return (
-    <Container data-testid="ImageSelector">
-      <div>ImageSelector Component</div>
+    <Container data-testid="ImageSelector-wrapper">
+      <Input
+        accept=".png, .jpg, .jpeg"
+        data-testid="file-input"
+        type="file"
+        onChange={handleChange}
+      />
     </Container>
   );
 };
+
+/* import React, {Component} from 'react'
+import {render, cleanup, fireEvent} from 'react-testing-library'
+
+afterEach(cleanup)
+
+class UploadFile extends Component {
+  state = {
+    uploadedFileName: null,
+  }
+
+  handleUploadFile = e => {
+    const file = e.target.files[0]
+    this.setState({
+      uploadedFileName: file.name,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <label for="upload-file">Upload File</label>
+        <input
+          type="file"
+          id="upload-file"
+          name="upload-file"
+          onChange={this.handleUploadFile}
+        />
+        {this.state.uploadedFileName && (
+          <div>
+            You have uploaded a file named {this.state.uploadedFileName}
+          </div>
+        )}
+      </div>
+    )
+  }
+}
+
+test('Show the uploaded file name after the user uploads a file', () => {
+  const {getByLabelText, getByText} = render(<UploadFile />)
+
+  const file = new File(['(⌐□_□)'], 'chucknorris.png', {
+    type: 'image/png',
+  })
+
+  const inputEl = getByLabelText('Upload File')
+
+  // input.files is a read-only property
+  // so this is not allowed
+  // input.files = [file]
+
+  // But DOM properties are reconfigurable
+  // I got this while reading through a related JSDOM Github issue
+  // https://github.com/jsdom/jsdom/issues/1272#issuecomment-150670691
+  Object.defineProperty(inputEl, 'files', {
+    value: [file],
+  })
+
+  // If you want to trigger the onChange handler of a controlled component
+  // with a different event.target.value, sending value through
+  // eventProperties won't work like it does with Simulate.
+  // You need to change the element's value property,
+  // then use fireEvent to fire a change DOM event.
+  // https://github.com/kentcdodds/react-testing-library#fireeventeventnamenode-htmlelement-eventproperties-object
+  fireEvent.change(inputEl)
+
+  getByText('You have uploaded a file named chucknorris.png')
+})
+*/

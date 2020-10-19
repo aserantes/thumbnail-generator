@@ -6,7 +6,15 @@
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
+  "plugins": [
+    "sort-destructure-keys",
+    "sort-imports-es6-autofix",
+    "prettier",
+    "react"
+  ],
   "rules": {
+    "no-use-before-define": 0,
+    "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/interface-name-prefix": 0,
@@ -31,13 +39,28 @@
       2,
       {
         "blankLine": "always",
-        "prev": ["multiline-const", "export", "function"],
-        "next": "*"
+        "prev": ["import", "export", "return", "const"],
+        "next": ["*"]
       },
       {
         "blankLine": "always",
         "prev": ["*"],
-        "next": ["expression", "multiline-const", "export", "function"]
+        "next": ["import", "export", "return", "const"]
+      },
+      {
+        "blankLine": "never",
+        "prev": ["import"],
+        "next": ["import"]
+      },
+      {
+        "blankLine": "never",
+        "prev": ["return"],
+        "next": ["return"]
+      },
+      {
+        "blankLine": "never",
+        "prev": ["const", "let"],
+        "next": ["const", "let"]
       }
     ],
     "no-unneeded-ternary": 2,
@@ -50,7 +73,16 @@
     "no-var": 2,
     "object-shorthand": 2,
     "no-useless-rename": 2,
-    "spaced-comment": [2, "always", { "markers": ["/"] }]
+    "spaced-comment": [2, "always", { "markers": ["/"] }],
+    "sort-destructure-keys/sort-destructure-keys": 2,
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["single", "multiple", "none", "all"]
+      }
+    ]
   },
   "overrides": [
     {
@@ -61,6 +93,8 @@
     },
     {
       "files": ["**/*.test.tsx"],
+      "extends": ["plugin:jest/recommended"],
+      "plugins": ["jest"],
       "rules": {
         "@typescript-eslint/no-empty-function": 0,
         "@typescript-eslint/no-unused-vars": [
@@ -68,12 +102,18 @@
           { "varsIgnorePattern": "describe|it|test" }
         ]
       }
+    },
+    {
+      "files": "server/**/*.js",
+      "rules": {
+        "simple-import-sort/sort": "off",
+        "import/order": ["error", { "newlines-between": "always" }]
+      }
     }
   ],
   "settings": {
     "react": {
       "version": "detect"
     }
-  },
-  "ignorePatterns": ["coverage/", "node_modules/", "src/serviceWorker.ts"]
+  }
 }

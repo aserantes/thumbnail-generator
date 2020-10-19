@@ -2,13 +2,15 @@
 
 exports[`<ImageSelector /> should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="css-1w5jlbf"
-    data-testid="ImageSelector"
+    data-testid="ImageSelector-wrapper"
   >
-    <div>
-      ImageSelector Component
-    </div>
-  </div>
+    <input
+      class="css-0"
+      data-testid="file-input"
+      type="file"
+    />
+  </section>
 </DocumentFragment>
 `;

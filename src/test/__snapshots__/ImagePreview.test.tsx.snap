@@ -2,29 +2,13 @@
 
 exports[`<ImagePreview /> should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="css-17ztkzs"
-    data-testid="ImagePreview"
+    data-testid="ImagePreview-wrapper"
   >
-    <button
-      class="css-uxd16r"
-      data-testid="button"
-    >
-      change test
-    </button>
-    <input
-      class="css-qafjh4"
-      data-testid="input"
-      value=""
-    />
     <div>
       ImagePreview Component
     </div>
-    <div
-      data-testid="div"
-    >
-      reduxStringInitialState
-    </div>
-  </div>
+  </section>
 </DocumentFragment>
 `;

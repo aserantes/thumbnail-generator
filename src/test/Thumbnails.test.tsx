@@ -1,11 +1,12 @@
 import React from "react";
-import { render, screen } from "utils/test-helpers";
-import { Thumbnails } from "features/Thumbnails";
+import { Thumbnails } from "Features/Thumbnails";
+import { render, screen } from "Utils/test-helpers";
 
 describe("<Thumbnails>", () => {
   it("should render", () => {
     render(<Thumbnails />);
-    const component = screen.getByTestId("Thumbnails");
+
+    const component = screen.getByTestId("Thumbnails-wrapper");
 
     expect(component).toBeInTheDocument();
   });

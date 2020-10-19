@@ -2,53 +2,47 @@
 
 exports[`<App /> should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="css-14jqeis"
-    data-testid="App"
+    data-testid="App-wrapper"
   >
+    <div
+      class="css-jf40hj"
+    >
+      <div>
+        Header Component
+      </div>
+    </div>
     <div>
       App Component
     </div>
-    <div
+    <section
       class="css-17ztkzs"
-      data-testid="ImagePreview"
+      data-testid="ImagePreview-wrapper"
     >
-      <button
-        class="css-uxd16r"
-        data-testid="button"
-      >
-        change test
-      </button>
-      <input
-        class="css-qafjh4"
-        data-testid="input"
-        value=""
-      />
       <div>
         ImagePreview Component
       </div>
-      <div
-        data-testid="div"
-      >
-        reduxStringInitialState
-      </div>
-    </div>
-    <div
+    </section>
+    <section
       class="css-1w5jlbf"
-      data-testid="ImageSelector"
+      data-testid="ImageSelector-wrapper"
     >
-      <div>
-        ImageSelector Component
-      </div>
-    </div>
-    <div
+      <input
+        accept=".png, .jpg, .jpeg"
+        class="css-0"
+        data-testid="file-input"
+        type="file"
+      />
+    </section>
+    <section
       class="css-119czso"
-      data-testid="Thumbnails"
+      data-testid="Thumbnails-wrapper"
     >
       <div>
         Thumbnails Component
       </div>
-    </div>
-  </div>
+    </section>
+  </section>
 </DocumentFragment>
 `;

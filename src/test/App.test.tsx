@@ -1,11 +1,12 @@
 import React from "react";
-import { render, screen } from "utils/test-helpers";
 import { App } from "App";
+import { render, screen } from "Utils/test-helpers";
 
 describe("<App />", () => {
   it("should render", () => {
     render(<App />);
-    const component = screen.getByTestId("App");
+
+    const component = screen.getByTestId("App-wrapper");
 
     expect(component).toBeInTheDocument();
   });

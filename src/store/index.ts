@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
 import { Action, combineReducers } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
-import { imagePreviewReducer as imagePreview } from "store/ImagePreviewSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import { fileToUploadReducer as fileToUpload } from "./fileToUploadSlice";
 
 export const rootReducer = combineReducers({
-  imagePreview,
+  fileToUpload,
 });
 
 export const store = configureStore({

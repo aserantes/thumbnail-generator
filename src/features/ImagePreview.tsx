@@ -1,43 +1,42 @@
-import React, { useState, ChangeEvent } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { changeTest } from "store/ImagePreviewSlice";
-import { RootState } from "store";
+import React from "react";
 import styled from "@emotion/styled";
 
-const Container = styled.div`
+const Container = styled.section`
   background-color: green;
   padding: 20px;
 `;
 
-const Input = styled.input`
-  color: black;
-`;
-
-const Button = styled.button`
-  color: gray;
-`;
-
 export const ImagePreview = () => {
-  const dispatch = useDispatch();
-  const test = useSelector((state: RootState) => state.imagePreview.test);
-  const [textInput, setTextInput] = useState("");
-
-  const handleClick = (): void => {
-    dispatch(changeTest(textInput));
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setTextInput(event.target.value);
-  };
-
   return (
-    <Container data-testid="ImagePreview">
-      <Button data-testid="button" onClick={handleClick}>
-        change test
-      </Button>
-      <Input data-testid="input" value={textInput} onChange={handleChange} />
+    <Container data-testid="ImagePreview-wrapper">
       <div>ImagePreview Component</div>
-      <div data-testid="div">{test}</div>
     </Container>
   );
 };
+
+/*
+const onSubmit = (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append("file", file);
+
+  // Pass a setUploadPercentage as callback here
+  putData(formData, { onUploadProgress: setUploadPercentage )
+    .then((response) => { 
+      console.log(response);
+    });
+};
+export function putData(formData, { onUploadProgress }) {
+  return axios.put('/update', formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    onUploadProgress : (progressEvent) => {
+      const progress = parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total));
+      // Update state here
+      onUploadProgress(progress);
+    },
+  });
+}
+
+*/

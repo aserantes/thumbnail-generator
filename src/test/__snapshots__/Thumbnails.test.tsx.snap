@@ -2,13 +2,13 @@
 
 exports[`<Thumbnails> should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <section
     class="css-119czso"
-    data-testid="Thumbnails"
+    data-testid="Thumbnails-wrapper"
   >
     <div>
       Thumbnails Component
     </div>
-  </div>
+  </section>
 </DocumentFragment>
 `;

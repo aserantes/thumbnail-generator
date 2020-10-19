@@ -1,11 +1,12 @@
 import React from "react";
-import { renderWithRedux, screen } from "utils/test-helpers";
-import { ImagePreview } from "features/ImagePreview";
+import { ImagePreview } from "Features/ImagePreview";
+import { renderWithRedux, screen } from "Utils/test-helpers";
 
 describe("<ImagePreview />", () => {
   it("should render", () => {
     renderWithRedux(<ImagePreview />);
-    const component = screen.getByTestId("ImagePreview");
+
+    const component = screen.getByTestId("ImagePreview-wrapper");
 
     expect(component).toBeInTheDocument();
   });
@@ -41,20 +42,20 @@ describe("<ImagePreview />", () => {
     expect(screen.getByText("reduxStringInitialState")).toBeInTheDocument();
   });
 
-  it("REDUX:should call changeTest action on click //// UI:and change div value", () => {
+  it("REDUX:should call setFileToUploadData action on click //// UI:and change div value", () => {
     const { mockStore } = renderWithRedux(<ImagePreview />);
 
     fireEvent.click(screen.getByText("change test"));
 
     expect(mockStore.getActions()).toEqual([
-      { type: changeTest.type, payload: "" },
+      { type: setFileToUploadData.type, payload: "" },
     ]);
 
     // SEPARAR REDUX ACTION REDUCER TESTING FROM UI USER BEHAVIOUR
     expect(screen.getByText("reduxStringInitialState")).not.toBeInTheDocument();
   });
 
-  it("should call changeTest on click", () => {
+  it("should call setFileToUploadData on click", () => {
     const { mockStore } = renderWithRedux(<ImagePreview />);
 
     const input = screen.getByTestId("input");
@@ -64,15 +65,15 @@ describe("<ImagePreview />", () => {
     fireEvent.click(screen.getByTestId("button"));
 
     expect(mockStore.getActions()).toEqual([
-      { type: changeTest.type, payload: "123" },
+      { type: setFileToUploadData.type, payload: "123" },
     ]);
   });
 
-  test("imagePreviewReducer should change test value", () => {
+  test("fileToUploadReducer should change test value", () => {
     expect(
-      imagePreviewReducer(
+      fileToUploadReducer(
         { ...rootInitialState.imagePreview, test: "" },
-        changeTest("hola")
+        setFileToUploadData("hola")
       )
     ).toEqual({ ...rootInitialState.imagePreview, test: "hola" });
   });

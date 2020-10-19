@@ -1,32 +1,28 @@
 {
-  "editor.fontFamily": "Cascadia Code PL",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.fontFamily": "Cascadia Code PL",
   "editor.tabSize": 2,
   "editor.suggestSelection": "first",
-  "editor.codeActionsOnSave": { "source.fixAll": true },
-  "[javascript]": { "editor.formatOnSave": false },
-  "[typescript]": { "editor.formatOnSave": false },
-
-  "prettier.disableLanguages": ["ts", "tsx", "js", "jsx"],
-
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.packageManager": "yarn",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
 
   "terminal.integrated.shell.windows": "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "terminal.integrated.fontFamily": "Cascadia Code PL",
 
-  "liveServer.settings.donotShowInfoMsg": true,
+  "explorer.confirmDragAndDrop": false,
 
   "files.autoSave": "off",
+  "files.eol": "\n",
 
   "git.suggestSmartCommit": false,
+  "git.confirmSync": false,
 
-  "workbench.settings.editor": "json"
+  "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.enabled": false,
+
+  "liveServer.settings.donotShowInfoMsg": true,
+  
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+},
+"typescript.tsdk": "node_modules\\typescript\\lib",
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import { render, screen } from "utils/test-helpers";
-import { ImageSelector } from "features/ImageSelector";
+import { ImageSelector } from "Features/ImageSelector";
+import { render, screen } from "Utils/test-helpers";
 
 describe("<ImageSelector />", () => {
   it("should render", () => {
     render(<ImageSelector />);
-    const component = screen.getByTestId("ImageSelector");
+
+    const component = screen.getByTestId("ImageSelector-wrapper");
 
     expect(component).toBeInTheDocument();
   });
