@@ -1,8 +1,8 @@
 import React from "react";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { DefaultRootState } from "Store";
 import { Provider } from "react-redux";
-import { RootState } from "Store";
 import { initialState as fileToUpload } from "Store/fileToUploadSlice";
 import { render } from "@testing-library/react";
 
@@ -14,7 +14,7 @@ const mockStore = configureStore([thunk]);
 
 export const renderWithRedux = (
   ui: JSX.Element,
-  initialState: RootState = rootInitialState
+  initialState: DefaultRootState = rootInitialState
 ) => {
   const store = mockStore(initialState);
 

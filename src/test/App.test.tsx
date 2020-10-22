@@ -1,6 +1,6 @@
 import React from "react";
 import { App } from "App";
-import { render, screen } from "Utils/test-helpers";
+import { render, screen } from "Utils/testHelpers";
 
 describe("<App />", () => {
   it("should render", () => {

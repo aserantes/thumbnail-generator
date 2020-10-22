@@ -3,16 +3,15 @@ import styled from "@emotion/styled";
 
 const Container = styled.section`
   background-color: green;
-  padding: 20px;
 `;
 
-export const ImagePreview = () => {
+export function ImagePreview() {
   return (
     <Container data-testid="ImagePreview-wrapper">
       <div>ImagePreview Component</div>
     </Container>
   );
-};
+}
 
 /*
 const onSubmit = (e) => {

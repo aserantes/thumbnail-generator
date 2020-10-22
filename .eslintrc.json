@@ -1,24 +1,34 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
   "plugins": [
+    "@typescript-eslint",
     "sort-destructure-keys",
     "sort-imports-es6-autofix",
     "react",
-    "prettier"
+    "prettier",
+    "emotion"
   ],
   "rules": {
     "prettier/prettier": 2,
-    "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "@typescript-eslint/interface-name-prefix": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/ban-ts-ignore": 0,
+    "emotion/styled-import": 2,
+    "emotion/import-from-emotion": 2,
+    "emotion/no-vanilla": 2,
+    "emotion/syntax-preference": [2, "string"],
+    "react/function-component-definition": 2,
+    "react/jsx-props-no-spreading": 2,
+    "react/boolean-prop-naming": 2,
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 2,
+    "react/button-has-type": 2,
     "react/self-closing-comp": [2, { "component": true, "html": true }],
     "react/no-array-index-key": 2,
     "react/destructuring-assignment": [2, "always"],
@@ -65,7 +75,6 @@
     "no-unneeded-ternary": 2,
     "prefer-destructuring": [2, { "object": true, "array": false }],
     "prefer-template": 2,
-    "no-unreachable": 2,
     "eqeqeq": [2, "smart"],
     "no-shadow": [2, { "hoist": "all" }],
     "no-useless-return": 2,
@@ -73,6 +82,8 @@
     "object-shorthand": 2,
     "no-useless-rename": 2,
     "spaced-comment": [2, "always", { "markers": ["/"] }],
+    "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }],
+    "arrow-body-style": [2, "always"],
     "sort-destructure-keys/sort-destructure-keys": 2,
     "sort-imports-es6-autofix/sort-imports-es6": [
       2,
@@ -81,8 +92,7 @@
         "ignoreMemberSort": false,
         "memberSyntaxSortOrder": ["single", "multiple", "none", "all"]
       }
-    ],
-    "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }]
+    ]
   },
   "overrides": [
     {
@@ -106,7 +116,6 @@
     {
       "files": "server/**/*.js",
       "rules": {
-        "simple-import-sort/sort": 0,
         "import/order": [2, { "newlines-between": "always" }]
       }
     }

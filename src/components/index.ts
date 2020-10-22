@@ -1,4 +1,4 @@
-export { Button } from "./Button";
+export * from "./Common";
 
 export { Header } from "./Header";
 

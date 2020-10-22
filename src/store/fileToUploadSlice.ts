@@ -1,13 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
-  name?: string;
-  size?: number;
-  type?: string;
-  image?: File;
+  name: string;
+  size: number;
+  ext: string;
+  type: string;
+  path: string;
+  chunkPath: string;
 }
 
-export const initialState: InitialState = {};
+export const initialState: InitialState = {
+  name: "",
+  size: 0,
+  ext: "",
+  type: "",
+  path: "",
+  chunkPath: "",
+};
 
 export const slice = createSlice({
   name: "fileToUpload",

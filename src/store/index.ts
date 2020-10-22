@@ -12,8 +12,15 @@ export const store = configureStore({
   reducer: rootReducer,
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type DefaultRootState = ReturnType<typeof rootReducer>;
 
-export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
+export type AppThunk = ThunkAction<
+  void,
+  DefaultRootState,
+  null,
+  Action<string>
+>;
 
 export type AppDispatch = typeof store.dispatch;
+
+export * as selectors from "./selectors";
