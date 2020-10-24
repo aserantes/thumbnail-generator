@@ -2,9 +2,14 @@ import { Action, combineReducers } from "@reduxjs/toolkit";
 import { ThunkAction } from "redux-thunk";
 import { configureStore } from "@reduxjs/toolkit";
 import { fileToUploadReducer as fileToUpload } from "./fileToUploadSlice";
+import { themeReducer as theme } from "./themeSlice";
+import * as selectors from "./selectors";
+
+export { selectors };
 
 export const rootReducer = combineReducers({
   fileToUpload,
+  theme,
 });
 
 export const store = configureStore({
@@ -22,5 +27,3 @@ export type AppThunk = ThunkAction<
 >;
 
 export type AppDispatch = typeof store.dispatch;
-
-export * as selectors from "./selectors";

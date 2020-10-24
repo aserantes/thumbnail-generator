@@ -1,36 +1,40 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { Global, css } from "@emotion/core";
+import { AppWrapper } from "Components";
 import { Header } from "Components/Header";
 import { ImagePreview } from "Features/ImagePreview";
 import { ImageSelector } from "Features/ImageSelector";
-import { Provider } from "react-redux";
 import { Thumbnails } from "Features/Thumbnails";
-import { common, normalize } from "Components/Common";
-import { store } from "Store/index";
-
-const Container = styled.section`
-  background-color: gray;
-  flex-direction: column;
-`;
+import { selectors } from "Store";
+import { useSelector } from "react-redux";
+import { useWindowSize } from "Hooks";
 
 export function App() {
+  const theme = useSelector(selectors.getTheme);
+  const { height, width } = useWindowSize();
+
   return (
-    <Provider store={store}>
-      <Global
-        styles={css`
-          ${normalize};
-          ${common};
-          font-size: 50px;
-        `}
-      />
-      <Container data-testid="App-wrapper">
-        <div>App Component</div>
-        <Header />
-        <ImageSelector />
-        <ImagePreview />
-        <Thumbnails />
-      </Container>
-    </Provider>
+    <AppWrapper
+      backGroundColor={theme.colors.background}
+      data-testid="App-wrapper"
+      fontColor={theme.colors.text}
+    >
+      <div // make this a component Debug, along with state info and such
+        style={{
+          backgroundColor: "#000",
+          opacity: 0.6,
+          color: "#fff",
+          position: "absolute",
+          left: "50%",
+          transform: "translate(-50%, 0)",
+          top: 0,
+        }}
+      >
+        {`w:${width} h:${height}`}
+      </div>
+      <Header />
+      <ImageSelector />
+      {false && <ImagePreview />}
+      {false && <Thumbnails />}
+    </AppWrapper>
   );
 }

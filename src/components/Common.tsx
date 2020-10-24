@@ -1,37 +1,79 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
+import styled, { keyframes } from "styled-components";
 
-export const Button = styled.div`
-  background-color: lightgray;
-  height: 40px;
-  margin: 10px;
-  width: 140px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-  :hover {
-    transform: scale(1.01, 1.01);
-    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.2);
+interface ButtonProps {
+  buttonColor?: string;
+  onClick?: () => void;
+  hiShadow?: string;
+  loShadow?: string;
+}
+
+export const Button = styled.div<ButtonProps>`
+  font-size: 20px;
+  color: #fff;
+  background-color: ${({ buttonColor }) => buttonColor || "#888"}; // neutral
+  height: 60px;
+  width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: -2px 2px 4px ${({ loShadow }) => loShadow || "#000"},
+    -4px 4px 8px ${({ loShadow }) => loShadow || "#000"},
+    2px -2px 4px ${({ hiShadow }) => hiShadow || "#fff"},
+    4px -4px 8px ${({ hiShadow }) => hiShadow || "#fff"};
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-shadow: 1px 2px 3px #000;
+  :hover,
+  :active {
+    box-shadow: -1px 1px 2px ${({ loShadow }) => loShadow || "#000"},
+      -2px 2px 4px ${({ loShadow }) => loShadow || "#000"},
+      1px -1px 2px ${({ hiShadow }) => hiShadow || "#fff"},
+      2px -2px 4px ${({ hiShadow }) => hiShadow || "#fff"};
   }
 `;
+
+interface IconWrapperProps {
+  iconBoxSize?: number;
+  iconColor?: string;
+  iconSize?: number;
+  iconShadow?: string;
+  overlayColor?: string;
+}
+
+export const IconWrapper = styled.div<IconWrapperProps>`
+  width: ${({ iconBoxSize }) => (iconBoxSize ? `${iconBoxSize}px` : "48px")};
+  height: ${({ iconBoxSize }) => (iconBoxSize ? `${iconBoxSize}px` : "48px")};
+  color: ${({ iconColor }) => iconColor || "#888"};
+  --webkit-text-fill-color: ${({ overlayColor }) => overlayColor || "none"};
+  font-size: ${({ iconSize }) => (iconSize ? `${iconSize}px` : "32px")};
+  align-items: center;
+  justify-content: center;
+  i {
+    color: transparent;
+    text-shadow: 2px 2px 4px ${({ iconColor }) => iconColor || "#888"},
+      0 0 0 #000;
+    transition: all 0.2s;
+  }
+`;
+
+/* inset shadow!!
+ 
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+      inset 8px 8px 16px rgba(0, 0, 0, 0.5),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+      inset -8px -8px 16px rgba(255, 255, 255, 0.5);
+*/
 
 export const ButtonText = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 10px;
   white-space: nowrap;
-  font-weight: 700;
-`;
-
-export const Heading = styled.h1`
-  font-weight: 700;
-  font-size: 36px;
+  cursor: pointer;
 `;
 
 export const SecondaryText = styled.p`
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 20px;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
@@ -43,169 +85,103 @@ export const Text = styled.p`
   font-size: 20px;
 `;
 
-/* @media screen and (max-width: 479px) { hasta 480, todo mobile. Diseñar mínimo 320px.
-/* start of phone styles */
+const Wrapper = styled.div`
+  flex: 1;
+`;
 
-export const common = css`
-  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,300&display=swap");
-  body {
-    font-family: "Open Sans", "Courier New", Courier, monospace;
-    font-size: 14px;
-    padding: 0;
-    margin: 0;
-    background: white;
-    min-height: 100vh;
+type DropZoneWrapperProps = {
+  primaryColor?: string;
+  secondaryColor?: string;
+};
+
+const borderAnimation = (props: DropZoneWrapperProps) => keyframes`
+  from {
+    border-color: ${props.primaryColor || "black"} ;
   }
-  div {
-    display: flex;
+  to {
+    border-color: ${props.secondaryColor || "white"} ;
   }
 `;
 
-export const normalize = css`
-  html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+export const DropZoneWrapper = styled(Wrapper).attrs(
+  (props: DropZoneWrapperProps) => props
+)<DropZoneWrapperProps>`
+  border-radius: 8px;
+  border: dashed 8px ${(props) => props.primaryColor};
+  margin-bottom: 16px;
+  opacity: 0.5;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  animation: ${borderAnimation} 0.5s infinite ease-in alternate;
+`;
+
+type AppWrapperProps = {
+  fontColor?: string;
+  backGroundColor?: string;
+};
+
+export const AppWrapper = styled(Wrapper).attrs(
+  (props: AppWrapperProps) => props
+)<AppWrapperProps>`
+  max-height: 640px;
+  max-width: 640px;
+  color: ${(props) => props.fontColor};
+  flex-direction: column;
+  background-color: ${(props) => props.backGroundColor};
+`;
+
+type AppTitleProps = {
+  fontColor?: string;
+  hiShadowColor?: string;
+  loShadowColor?: string;
+  fontHoverColor?: string;
+};
+
+export const AppTitle = styled.div.attrs((props: AppTitleProps) => props)<
+  AppTitleProps
+>`
+  transition: all 0.2s;
+  cursor: pointer;
+  color: ${(props) =>
+    props.fontColor ? props.fontColor : props.hiShadowColor};
+  font-family: "Chango", cursive;
+  font-size: 30px;
+  text-shadow: -2px 2px 4px ${(props) => props.loShadowColor},
+    -4px 4px 8px ${(props) => props.loShadowColor},
+    2px -2px 4px ${(props) => props.hiShadowColor},
+    4px -4px 8px ${(props) => props.hiShadowColor};
+  &:hover {
+    color: ${(props) => props.fontHoverColor};
   }
-  body {
-    margin: 0;
-  }
-  main {
-    display: block;
-  }
-  h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-  }
-  hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-  }
-  pre {
-    font-family: monospace, monospace;
-    font-size: 1em;
-  }
-  a {
-    background-color: transparent;
-  }
-  abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-  }
-  b,
-  strong {
-    font-weight: bolder;
-  }
-  code,
-  kbd,
-  samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
-  }
-  small {
-    font-size: 80%;
-  }
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  sub {
-    bottom: -0.25em;
-  }
-  sup {
-    top: -0.5em;
-  }
-  img {
-    border-style: none;
-  }
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-  }
-  button,
-  input {
-    overflow: visible;
-  }
-  button,
-  select {
-    text-transform: none;
-  }
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-  button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted;
-  }
-  fieldset {
-    padding: 0.35em 0.75em 0.625em;
-  }
-  legend {
-    box-sizing: border-box;
-    color: inherit;
-    display: table;
-    max-width: 100%;
-    padding: 0;
-    white-space: normal;
-  }
-  progress {
-    vertical-align: baseline;
-  }
-  textarea {
-    overflow: auto;
-  }
-  [type="checkbox"],
-  [type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-  }
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-  [type="search"] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
-  }
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    font: inherit;
-  }
-  details {
-    display: block;
-  }
-  summary {
-    display: list-item;
-  }
-  template {
-    display: none;
-  }
-  [hidden] {
-    display: none;
-  }
+`;
+
+export const ButtonRow = styled.div`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const ComponentWrapper = styled(Wrapper)`
+  box-shadow: inset 8px 8px 16px 0 rgba(0, 0, 0, 0.2),
+    inset -8px -8px 16px 0 rgba(255, 255, 255, 0.4);
+  padding: 16px;
+  border-radius: 16px;
+  margin: 8px;
+`;
+
+export const ImageSelectorWrapper = styled(ComponentWrapper)`
+  flex-direction: column;
+  min-height: 376px;
+`;
+
+export const HeaderWrapper = styled(ComponentWrapper)`
+  line-height: normal;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0;
+  max-height: 80px;
+`;
+
+export const Row = styled.div`
+  flex-direction: row;
 `;

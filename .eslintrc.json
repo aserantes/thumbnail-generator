@@ -13,16 +13,12 @@
     "sort-destructure-keys",
     "sort-imports-es6-autofix",
     "react",
-    "prettier",
-    "emotion"
+    "prettier"
   ],
   "rules": {
     "prettier/prettier": 2,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "emotion/styled-import": 2,
-    "emotion/import-from-emotion": 2,
-    "emotion/no-vanilla": 2,
-    "emotion/syntax-preference": [2, "string"],
+    "@typescript-eslint/ban-ts-comment": 0,
     "react/function-component-definition": 2,
     "react/jsx-props-no-spreading": 2,
     "react/boolean-prop-naming": 2,
@@ -78,12 +74,13 @@
     "eqeqeq": [2, "smart"],
     "no-shadow": [2, { "hoist": "all" }],
     "no-useless-return": 2,
+    "react/jsx-handler-names": 2,
     "no-var": 2,
     "object-shorthand": 2,
     "no-useless-rename": 2,
     "spaced-comment": [2, "always", { "markers": ["/"] }],
     "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1 }],
-    "arrow-body-style": [2, "always"],
+    "arrow-body-style": [2, "as-needed"],
     "sort-destructure-keys/sort-destructure-keys": 2,
     "sort-imports-es6-autofix/sort-imports-es6": [
       2,

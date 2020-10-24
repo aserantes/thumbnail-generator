@@ -7,15 +7,9 @@ export function useFileTypeAnalizer(path: string) {
   useEffect(() => {
     async function getFileInfo() {
       let response;
-      console.log("useEffect called!");
-      console.log(`path is [${path}]`);
       if (path) {
-        const blob = await fetch(path).then((res) => {
-          return res.blob();
-        });
-        const buffer = await blob.arrayBuffer().then((res) => {
-          return res;
-        });
+        const blob = await fetch(path).then((res) => res.blob());
+        const buffer = await blob.arrayBuffer().then((res) => res);
 
         response = await FileType.fromBuffer(buffer);
       }

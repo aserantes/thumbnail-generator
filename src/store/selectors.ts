@@ -2,42 +2,31 @@ import { DefaultRootState } from "./";
 import { checkSizeValidity, checkTypeValidity } from "Utils/fileHelpers";
 import { createSelector } from "@reduxjs/toolkit";
 
-export const getName = (state: DefaultRootState) => {
-  return state.fileToUpload.name;
-};
+export const getTheme = (state: DefaultRootState) => state.theme;
 
-export const getSize = (state: DefaultRootState) => {
-  return state.fileToUpload.size;
-};
+export const getName = (state: DefaultRootState) => state.fileToUpload.name;
 
-export const getExt = (state: DefaultRootState) => {
-  return state.fileToUpload.ext;
-};
+export const getSize = (state: DefaultRootState) => state.fileToUpload.size;
 
-export const getType = (state: DefaultRootState) => {
-  return state.fileToUpload.type;
-};
+export const getExt = (state: DefaultRootState) => state.fileToUpload.ext;
 
-export const getPath = (state: DefaultRootState) => {
-  return state.fileToUpload.path;
-};
+export const getType = (state: DefaultRootState) => state.fileToUpload.type;
 
-export const getChunkPath = (state: DefaultRootState) => {
-  return state.fileToUpload.chunkPath;
-};
+export const getPath = (state: DefaultRootState) => state.fileToUpload.path;
 
-export const getTypeIsValid = createSelector(getType, (type) => {
-  return checkTypeValidity(type);
-});
+export const getChunkPath = (state: DefaultRootState) =>
+  state.fileToUpload.chunkPath;
 
-export const getSizeIsValid = createSelector(getSize, (size) => {
-  return checkSizeValidity(size);
-});
+export const getTypeIsValid = createSelector(getType, (type) =>
+  checkTypeValidity(type)
+);
+
+export const getSizeIsValid = createSelector(getSize, (size) =>
+  checkSizeValidity(size)
+);
 
 export const getFileIsValid = createSelector(
   getTypeIsValid,
   getSizeIsValid,
-  (typeIsValid, sizeIsValid) => {
-    return typeIsValid && sizeIsValid;
-  }
+  (typeIsValid, sizeIsValid) => typeIsValid && sizeIsValid
 );
