@@ -11,3 +11,5 @@ export { BrowseButton } from "./BrowseButton";
 export { CameraButton } from "./CameraButton";
 
 export { DropZone } from "./DropZone";
+
+export { ComponentTitle } from "./ComponentTitle";

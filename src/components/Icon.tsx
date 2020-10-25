@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, ReactElement } from "react";
 // import styled from "styled-components";
 import { IconWrapper } from "./Common";
 
@@ -7,10 +7,12 @@ interface IconProps {
   iconColor?: string;
   iconSize?: number;
   className: string;
+  style?: "string";
+  onClick?: () => void;
 }
 
-export function Icon(props: IconProps) {
-  const { className, iconBoxSize, iconColor, iconSize } = props;
+export function Icon(props: IconProps): ReactElement<FC> {
+  const { className, iconBoxSize, iconColor, iconSize, onClick } = props;
 
   return (
     <>
@@ -18,6 +20,7 @@ export function Icon(props: IconProps) {
         iconBoxSize={iconBoxSize}
         iconColor={iconColor}
         iconSize={iconSize}
+        onClick={onClick}
       >
         <i className={className} />
       </IconWrapper>

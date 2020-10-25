@@ -6,6 +6,7 @@ import {
   DropZone,
   ImageSelectorWrapper,
 } from "Components";
+import { getFileInfo } from "Utils/fileHelpers";
 import { selectors } from "Store";
 import { setFileToUploadData } from "Store/fileToUploadSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,26 +17,16 @@ export function ImageSelector() {
   const [result] = useFileTypeAnalizer(chunkPath);
   const dispatch = useDispatch();
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
-    console.log(event);
+    const file = event.dataTransfer.files && event.dataTransfer.files[0];
+    const fileInfo = getFileInfo(file);
+
+    fileInfo && dispatch(setFileToUploadData(fileInfo));
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const file = event.target.files && event.target.files[0];
+    const fileInfo = getFileInfo(file);
 
-    if (file) {
-      const fileDomPath = URL.createObjectURL(file);
-      const fileChunkDomPath = URL.createObjectURL(file.slice(0, 32));
-
-      dispatch(
-        setFileToUploadData({
-          name: file.name,
-          size: file.size,
-          ext: file.type,
-          path: fileDomPath,
-          chunkPath: fileChunkDomPath,
-          type: "",
-        })
-      );
-    }
+    fileInfo && dispatch(setFileToUploadData(fileInfo));
   };
 
   useEffect(() => {

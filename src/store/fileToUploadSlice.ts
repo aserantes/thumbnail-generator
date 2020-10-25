@@ -7,6 +7,7 @@ export const initialState = {
   type: "",
   path: "",
   chunkPath: "",
+  isFirstLoad: true,
 };
 
 export const slice = createSlice({

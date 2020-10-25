@@ -14,6 +14,9 @@ export const getType = (state: DefaultRootState) => state.fileToUpload.type;
 
 export const getPath = (state: DefaultRootState) => state.fileToUpload.path;
 
+export const getIsFirstLoad = (state: DefaultRootState) =>
+  state.fileToUpload.isFirstLoad;
+
 export const getChunkPath = (state: DefaultRootState) =>
   state.fileToUpload.chunkPath;
 

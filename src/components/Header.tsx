@@ -16,7 +16,7 @@ export function Header() {
       >
         Thumbs App
       </AppTitle>
-      <Icon className="fab fa-github" iconColor="#ccc" iconSize={48} />
+      <Icon className="fab fa-github" iconColor="#ccc" iconSize={40} />
     </HeaderWrapper>
   );
 }

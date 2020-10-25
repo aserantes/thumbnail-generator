@@ -1,18 +1,37 @@
 import React from "react";
-import styled from "styled-components";
-
-const Container = styled.section`
-  background-color: green;
-`;
+import { ComponentTitle } from "Components";
+import {
+  ImageInfo,
+  ImageInfoTextBlock,
+  ImagePreviewWrapper,
+  SmallImage,
+  Text,
+} from "Components/Common";
+import { selectors } from "Store";
+import { useSelector } from "react-redux";
 
 export function ImagePreview() {
+  const name = useSelector(selectors.getName);
+  const type = useSelector(selectors.getType);
+  const size = `${useSelector(selectors.getSize) / 1024 / 1024} Mb.`;
+  const path = useSelector(selectors.getPath);
+
   return (
-    <Container data-testid="ImagePreview-wrapper">
-      <div>ImagePreview Component</div>
-    </Container>
+    <ImagePreviewWrapper data-testid="ImagePreview-wrapper">
+      <ComponentTitle title="Image Preview" />
+      <ImageInfo>
+        <ImageInfoTextBlock>
+          <Text>
+            <span>Name: {name}</span>
+            <span>Type: {type}</span>
+            <span>Size: {size}</span>
+          </Text>
+        </ImageInfoTextBlock>
+        <SmallImage alt="Image Preview" src={path} />
+      </ImageInfo>
+    </ImagePreviewWrapper>
   );
 }
-
 /*
 const onSubmit = (e) => {
   e.preventDefault();

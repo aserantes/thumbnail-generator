@@ -10,6 +10,7 @@ import { useWindowSize } from "Hooks";
 
 export function App() {
   const theme = useSelector(selectors.getTheme);
+  const fileIsValid = useSelector(selectors.getFileIsValid);
   const { height, width } = useWindowSize();
 
   return (
@@ -29,11 +30,11 @@ export function App() {
           top: 0,
         }}
       >
-        {`w:${width} h:${height}`}
+        {`w:${width} h:${height} - ${fileIsValid}`}
       </div>
       <Header />
-      <ImageSelector />
-      {false && <ImagePreview />}
+      {!fileIsValid && <ImageSelector />}
+      {fileIsValid && <ImagePreview />}
       {false && <Thumbnails />}
     </AppWrapper>
   );

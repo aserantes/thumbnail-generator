@@ -10,7 +10,6 @@ interface ButtonProps {
 export const Button = styled.div<ButtonProps>`
   font-size: 20px;
   color: #fff;
-  background-color: ${({ buttonColor }) => buttonColor || "#888"}; // neutral
   height: 60px;
   width: 150px;
   padding: 8px;
@@ -22,8 +21,11 @@ export const Button = styled.div<ButtonProps>`
   transition: all 0.2s ease;
   cursor: pointer;
   text-shadow: 1px 2px 3px #000;
-  :hover,
+  :hover {
+    background-color: ${({ buttonColor }) => buttonColor || "#888"};
+  }
   :active {
+    background-color: ${({ buttonColor }) => buttonColor || "#888"};
     box-shadow: -1px 1px 2px ${({ loShadow }) => loShadow || "#000"},
       -2px 2px 4px ${({ loShadow }) => loShadow || "#000"},
       1px -1px 2px ${({ hiShadow }) => hiShadow || "#fff"},
@@ -43,7 +45,6 @@ export const IconWrapper = styled.div<IconWrapperProps>`
   width: ${({ iconBoxSize }) => (iconBoxSize ? `${iconBoxSize}px` : "48px")};
   height: ${({ iconBoxSize }) => (iconBoxSize ? `${iconBoxSize}px` : "48px")};
   color: ${({ iconColor }) => iconColor || "#888"};
-  --webkit-text-fill-color: ${({ overlayColor }) => overlayColor || "none"};
   font-size: ${({ iconSize }) => (iconSize ? `${iconSize}px` : "32px")};
   align-items: center;
   justify-content: center;
@@ -53,6 +54,29 @@ export const IconWrapper = styled.div<IconWrapperProps>`
       0 0 0 #000;
     transition: all 0.2s;
   }
+`;
+
+export const ComponentTitleWrapper = styled.div`
+  justify-content: space-between;
+  height: 40px;
+  background-color: yellow;
+`;
+
+export const ImageInfo = styled.div`
+  background-color: green;
+`;
+
+export const ImageInfoTextBlock = styled.div`
+  background-color: cyan;
+  flex-direction: column;
+`;
+
+export const SmallImage = styled.img`
+  max-width: 100px;
+`;
+
+export const Title = styled.div`
+  font-size: 24px;
 `;
 
 /* inset shadow!!
@@ -78,6 +102,11 @@ export const SecondaryText = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
+`;
+
+export const ErrorText = styled(SecondaryText)`
+  color: #c00;
 `;
 
 export const Text = styled.p`
@@ -92,11 +121,12 @@ const Wrapper = styled.div`
 type DropZoneWrapperProps = {
   primaryColor?: string;
   secondaryColor?: string;
+  isInDropZone?: boolean;
 };
 
 const borderAnimation = (props: DropZoneWrapperProps) => keyframes`
   from {
-    border-color: ${props.primaryColor || "black"} ;
+    border-color: ${props.primaryColor || "gray"} ;
   }
   to {
     border-color: ${props.secondaryColor || "white"} ;
@@ -107,13 +137,15 @@ export const DropZoneWrapper = styled(Wrapper).attrs(
   (props: DropZoneWrapperProps) => props
 )<DropZoneWrapperProps>`
   border-radius: 8px;
-  border: dashed 8px ${(props) => props.primaryColor};
+  border: dashed 8px ${(props) => props.primaryColor || "gray"};
   margin-bottom: 16px;
   opacity: 0.5;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  animation: ${borderAnimation} 0.5s infinite ease-in alternate;
+  animation: ${(props) => props.isInDropZone && borderAnimation} 0.5s infinite
+    ease-out alternate;
+  transition: all 0.2s;
 `;
 
 type AppWrapperProps = {
@@ -129,6 +161,7 @@ export const AppWrapper = styled(Wrapper).attrs(
   color: ${(props) => props.fontColor};
   flex-direction: column;
   background-color: ${(props) => props.backGroundColor};
+  box-shadow: 0 4px 8px #444;
 `;
 
 type AppTitleProps = {
@@ -172,6 +205,10 @@ export const ComponentWrapper = styled(Wrapper)`
 export const ImageSelectorWrapper = styled(ComponentWrapper)`
   flex-direction: column;
   min-height: 376px;
+`;
+
+export const ImagePreviewWrapper = styled(ComponentWrapper)`
+  flex-direction: column;
 `;
 
 export const HeaderWrapper = styled(ComponentWrapper)`
