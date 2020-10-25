@@ -1,25 +1,25 @@
 import React from "react";
-import { ComponentTitle } from "Components";
 import {
+  ButtonRow,
   ImageInfo,
   ImageInfoTextBlock,
   ImageInfoTextItem,
   ImagePreviewWrapper,
   Thumbnail,
 } from "Components/Common";
+import { CancelButton, ProcessButton } from "Components";
 import { selectors } from "Store";
 import { useSelector } from "react-redux";
 
 export function ImagePreview() {
   const name = useSelector(selectors.getName);
   const type = useSelector(selectors.getType);
-  const size = useSelector(selectors.getSize) as number;
+  const size = useSelector(selectors.getSize);
   const path = useSelector(selectors.getPath);
-  const sizeText = `${parseFloat((size / 1024).toString()).toFixed(2)} Kb`;
+  const sizeText = `${(size / 1024).toFixed(2)} Kb`;
 
   return (
     <ImagePreviewWrapper data-testid="ImagePreview-wrapper">
-      <ComponentTitle title="Image Preview" />
       <ImageInfo>
         <Thumbnail alt="Image Preview" src={path} />
 
@@ -35,6 +35,10 @@ export function ImagePreview() {
           </ImageInfoTextItem>
         </ImageInfoTextBlock>
       </ImageInfo>
+      <ButtonRow>
+        <ProcessButton />
+        <CancelButton />
+      </ButtonRow>
     </ImagePreviewWrapper>
   );
 }

@@ -20,11 +20,11 @@ export function BrowseButton(props: BrowseButtonProps) {
 
   return (
     <Button
-      buttonColor={theme.colors.primary} // TODO fix this...colors and naming.
+      buttonColor={theme.colors.primary}
       role="button"
       onClick={handleClick}
     >
-      <Icon className="fas fa-folder-open" iconBoxSize={48} iconSize={32} />
+      <Icon className="fas fa-folder-open" iconBoxSize={44} iconSize={32} />
       <ButtonText>Browse</ButtonText>
       <input
         hidden

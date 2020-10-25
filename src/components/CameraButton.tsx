@@ -22,7 +22,7 @@ export function CameraButton(props: CameraButtonProps) {
       role="button"
       onClick={handleClick}
     >
-      <Icon className="fas fa-camera" iconBoxSize={48} iconSize={32} />
+      <Icon className="fas fa-camera" iconBoxSize={44} iconSize={32} />
       <ButtonText>Camera</ButtonText>
       <input
         hidden

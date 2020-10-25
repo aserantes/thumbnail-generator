@@ -57,15 +57,11 @@ export const ComponentTitleWrapper = styled.div`
 
 export const ImageInfo = styled.div`
   flex-wrap: wrap;
-  justify-content: space-between;
 `;
 
 export const ImageInfoTextBlock = styled.div`
   flex-direction: column;
-  max-width: 280px;
-  max-height: 280px;
-  margin: 8px;
-  justify-content: center;
+  margin: 8px 0 8px 8px;
 `;
 
 export const ImageInfoTextItem = styled.div`
@@ -74,14 +70,15 @@ export const ImageInfoTextItem = styled.div`
   text-overflow: ellipsis;
   display: inline-block;
   margin-bottom: 8px;
+  max-width: 388px;
 `;
 
 export const Thumbnail = styled.img`
   border-radius: 8px;
   box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
     4px -4px 8px #ddd;
-  max-width: 280px;
-  max-height: 280px;
+  max-width: 160px;
+  max-height: 160px;
   margin: 8px;
 `;
 
@@ -219,6 +216,7 @@ export const ImageSelectorWrapper = styled(NeumorphicWrapper)`
 
 export const ImagePreviewWrapper = styled(NeumorphicWrapper)`
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const HeaderWrapper = styled(NeumorphicWrapper)`
