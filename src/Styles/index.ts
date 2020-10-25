@@ -53,7 +53,7 @@ export const common = css`
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     font-family: "Roboto Condensed", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     padding: 0;
     margin: 0;

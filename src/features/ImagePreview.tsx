@@ -3,9 +3,9 @@ import { ComponentTitle } from "Components";
 import {
   ImageInfo,
   ImageInfoTextBlock,
+  ImageInfoTextItem,
   ImagePreviewWrapper,
-  SmallImage,
-  Text,
+  Thumbnail,
 } from "Components/Common";
 import { selectors } from "Store";
 import { useSelector } from "react-redux";
@@ -13,21 +13,27 @@ import { useSelector } from "react-redux";
 export function ImagePreview() {
   const name = useSelector(selectors.getName);
   const type = useSelector(selectors.getType);
-  const size = `${useSelector(selectors.getSize) / 1024 / 1024} Mb.`;
+  const size = useSelector(selectors.getSize) as number;
   const path = useSelector(selectors.getPath);
+  const sizeText = `${parseFloat((size / 1024).toString()).toFixed(2)} Kb`;
 
   return (
     <ImagePreviewWrapper data-testid="ImagePreview-wrapper">
       <ComponentTitle title="Image Preview" />
       <ImageInfo>
+        <Thumbnail alt="Image Preview" src={path} />
+
         <ImageInfoTextBlock>
-          <Text>
-            <span>Name: {name}</span>
-            <span>Type: {type}</span>
-            <span>Size: {size}</span>
-          </Text>
+          <ImageInfoTextItem>
+            <strong>Name:&nbsp;</strong> {name}
+          </ImageInfoTextItem>
+          <ImageInfoTextItem>
+            <strong>Type:&nbsp;</strong> {type}
+          </ImageInfoTextItem>
+          <ImageInfoTextItem>
+            <strong>Size:&nbsp;</strong> {sizeText}
+          </ImageInfoTextItem>
         </ImageInfoTextBlock>
-        <SmallImage alt="Image Preview" src={path} />
       </ImageInfo>
     </ImagePreviewWrapper>
   );

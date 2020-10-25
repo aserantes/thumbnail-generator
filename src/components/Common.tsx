@@ -3,21 +3,16 @@ import styled, { keyframes } from "styled-components";
 interface ButtonProps {
   buttonColor?: string;
   onClick?: () => void;
-  hiShadow?: string;
-  loShadow?: string;
 }
 
 export const Button = styled.div<ButtonProps>`
-  font-size: 20px;
   color: #fff;
   height: 60px;
   width: 150px;
   padding: 8px;
   border-radius: 8px;
-  box-shadow: -2px 2px 4px ${({ loShadow }) => loShadow || "#000"},
-    -4px 4px 8px ${({ loShadow }) => loShadow || "#000"},
-    2px -2px 4px ${({ hiShadow }) => hiShadow || "#fff"},
-    4px -4px 8px ${({ hiShadow }) => hiShadow || "#fff"};
+  box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
+    4px -4px 8px #ddd;
   transition: all 0.2s ease;
   cursor: pointer;
   text-shadow: 1px 2px 3px #000;
@@ -26,10 +21,8 @@ export const Button = styled.div<ButtonProps>`
   }
   :active {
     background-color: ${({ buttonColor }) => buttonColor || "#888"};
-    box-shadow: -1px 1px 2px ${({ loShadow }) => loShadow || "#000"},
-      -2px 2px 4px ${({ loShadow }) => loShadow || "#000"},
-      1px -1px 2px ${({ hiShadow }) => hiShadow || "#fff"},
-      2px -2px 4px ${({ hiShadow }) => hiShadow || "#fff"};
+    box-shadow: -1px 1px 2px #444, -2px 2px 4px #444, 1px -1px 2px #ddd,
+      2px -2px 4px #ddd;
   }
 `;
 
@@ -59,24 +52,43 @@ export const IconWrapper = styled.div<IconWrapperProps>`
 export const ComponentTitleWrapper = styled.div`
   justify-content: space-between;
   height: 40px;
-  background-color: yellow;
+  margin-bottom: 16px;
 `;
 
 export const ImageInfo = styled.div`
-  background-color: green;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 export const ImageInfoTextBlock = styled.div`
-  background-color: cyan;
   flex-direction: column;
+  max-width: 280px;
+  max-height: 280px;
+  margin: 8px;
+  justify-content: center;
 `;
 
-export const SmallImage = styled.img`
-  max-width: 100px;
+export const ImageInfoTextItem = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  margin-bottom: 8px;
+`;
+
+export const Thumbnail = styled.img`
+  border-radius: 8px;
+  box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
+    4px -4px 8px #ddd;
+  max-width: 280px;
+  max-height: 280px;
+  margin: 8px;
 `;
 
 export const Title = styled.div`
   font-size: 24px;
+  align-items: center;
+  font-weight: bold;
 `;
 
 /* inset shadow!!
@@ -97,7 +109,6 @@ export const ButtonText = styled.div`
 
 export const SecondaryText = styled.p`
   font-weight: 400;
-  font-size: 20px;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
@@ -111,7 +122,6 @@ export const ErrorText = styled(SecondaryText)`
 
 export const Text = styled.p`
   font-weight: 400;
-  font-size: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -194,7 +204,7 @@ export const ButtonRow = styled.div`
   justify-content: space-between;
 `;
 
-export const ComponentWrapper = styled(Wrapper)`
+export const NeumorphicWrapper = styled(Wrapper)`
   box-shadow: inset 8px 8px 16px 0 rgba(0, 0, 0, 0.2),
     inset -8px -8px 16px 0 rgba(255, 255, 255, 0.4);
   padding: 16px;
@@ -202,16 +212,16 @@ export const ComponentWrapper = styled(Wrapper)`
   margin: 8px;
 `;
 
-export const ImageSelectorWrapper = styled(ComponentWrapper)`
+export const ImageSelectorWrapper = styled(NeumorphicWrapper)`
   flex-direction: column;
   min-height: 376px;
 `;
 
-export const ImagePreviewWrapper = styled(ComponentWrapper)`
+export const ImagePreviewWrapper = styled(NeumorphicWrapper)`
   flex-direction: column;
 `;
 
-export const HeaderWrapper = styled(ComponentWrapper)`
+export const HeaderWrapper = styled(NeumorphicWrapper)`
   line-height: normal;
   flex-direction: row;
   justify-content: space-between;

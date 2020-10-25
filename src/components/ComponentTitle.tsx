@@ -19,7 +19,7 @@ export function ComponentTitle(props: ComponentTitleProps) {
     <ComponentTitleWrapper>
       <Icon
         className="fas fa-step-backward"
-        iconBoxSize={32}
+        iconBoxSize={48}
         iconSize={32}
         onClick={handleClick}
       />

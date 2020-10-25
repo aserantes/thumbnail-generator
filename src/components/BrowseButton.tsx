@@ -21,8 +21,6 @@ export function BrowseButton(props: BrowseButtonProps) {
   return (
     <Button
       buttonColor={theme.colors.primary} // TODO fix this...colors and naming.
-      hiShadow={theme.colors.background}
-      loShadow={theme.colors.foreground}
       role="button"
       onClick={handleClick}
     >

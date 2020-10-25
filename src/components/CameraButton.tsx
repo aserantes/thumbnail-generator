@@ -19,8 +19,6 @@ export function CameraButton(props: CameraButtonProps) {
   return (
     <Button
       buttonColor={theme.colors.primary}
-      hiShadow={theme.colors.background}
-      loShadow={theme.colors.foreground}
       role="button"
       onClick={handleClick}
     >
