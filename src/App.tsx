@@ -1,6 +1,6 @@
 import React from "react";
 import { AppWrapper } from "Components";
-import { Header } from "Components/Header";
+import { Header } from "Components";
 import { ImagePreview } from "Features/ImagePreview";
 import { ImageSelector } from "Features/ImageSelector";
 import { Thumbnails } from "Features/Thumbnails";

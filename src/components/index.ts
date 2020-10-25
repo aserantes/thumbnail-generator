@@ -10,7 +10,7 @@ export { BrowseButton } from "./BrowseButton";
 
 export { CameraButton } from "./CameraButton";
 
-export { CancelButton } from "./CancelButton";
+export { RestartButton } from "./RestartButton";
 
 export { ProcessButton } from "./ProcessButton";
 

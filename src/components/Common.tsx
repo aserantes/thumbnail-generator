@@ -70,7 +70,7 @@ export const ImageInfoTextItem = styled.div`
   text-overflow: ellipsis;
   display: inline-block;
   margin-bottom: 8px;
-  max-width: 388px;
+  max-width: 300px;
 `;
 
 export const Thumbnail = styled.img`

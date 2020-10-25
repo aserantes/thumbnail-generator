@@ -7,7 +7,7 @@ import {
   ImagePreviewWrapper,
   Thumbnail,
 } from "Components/Common";
-import { CancelButton, ProcessButton } from "Components";
+import { ProcessButton, RestartButton } from "Components";
 import { selectors } from "Store";
 import { useSelector } from "react-redux";
 
@@ -37,7 +37,7 @@ export function ImagePreview() {
       </ImageInfo>
       <ButtonRow>
         <ProcessButton />
-        <CancelButton />
+        <RestartButton />
       </ButtonRow>
     </ImagePreviewWrapper>
   );

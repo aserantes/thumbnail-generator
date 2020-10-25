@@ -14,7 +14,7 @@ export function ProcessButton(props: ProcessButtonProps) {
 
   return (
     <Button buttonColor={theme.colors.primary} role="button" onClick={onClick}>
-      <Icon className="fas fa-window-close" iconBoxSize={44} iconSize={32} />
+      <Icon className="fas fa-thumbs-up" iconBoxSize={44} iconSize={32} />
       <ButtonText>Process</ButtonText>
     </Button>
   );
