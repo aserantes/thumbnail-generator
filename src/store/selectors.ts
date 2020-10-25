@@ -2,6 +2,8 @@ import { DefaultRootState } from "./";
 import { checkSizeValidity, checkTypeValidity } from "Utils/fileHelpers";
 import { createSelector } from "@reduxjs/toolkit";
 
+export const getState = (state: DefaultRootState) => state;
+
 export const getTheme = (state: DefaultRootState) => state.theme;
 
 export const getName = (state: DefaultRootState) => state.fileToUpload.name;
