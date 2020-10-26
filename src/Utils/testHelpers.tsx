@@ -1,11 +1,11 @@
 import React from "react";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { DefaultRootState } from "store";
+import { DefaultRootState } from "../store";
 import { Provider } from "react-redux";
-import { initialState as fileToUpload } from "store/fileToUploadSlice";
+import { initialState as fileToUpload } from "../store/fileToUploadSlice";
 import { render } from "@testing-library/react";
-import { initialState as theme } from "store/themeSlice";
+import { initialState as theme } from "../store/themeSlice";
 
 export const rootInitialState = {
   fileToUpload,

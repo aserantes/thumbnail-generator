@@ -6,9 +6,9 @@ import {
   ImageInfoTextItem,
   ImagePreviewWrapper,
   Thumbnail,
-} from "components/Common";
-import { ProcessButton, RestartButton } from "components";
-import { selectors } from "store";
+} from "../components/Common";
+import { ProcessButton, RestartButton } from "../components";
+import { selectors } from "../store";
 import { useSelector } from "react-redux";
 
 export function ImagePreview() {

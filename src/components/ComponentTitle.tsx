@@ -1,7 +1,7 @@
 import React from "react";
-import { ComponentTitleWrapper, Title } from "components/Common";
-import { Icon } from "components";
-import { initialState, setFileToUploadData } from "store/fileToUploadSlice";
+import { ComponentTitleWrapper, Title } from "../components/Common";
+import { Icon } from "../components";
+import { initialState, setFileToUploadData } from "../store/fileToUploadSlice";
 import { useDispatch } from "react-redux";
 
 interface ComponentTitleProps {

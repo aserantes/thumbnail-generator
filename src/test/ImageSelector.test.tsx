@@ -1,6 +1,6 @@
 import React from "react";
-import { ImageSelector } from "features";
-import { render, screen } from "utils/testHelpers";
+import { ImageSelector } from "../features";
+import { render, screen } from "../utils/testHelpers";
 
 describe("<ImageSelector />", () => {
   it("should render", () => {

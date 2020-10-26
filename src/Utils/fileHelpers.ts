@@ -1,4 +1,4 @@
-import { MAX_FILE_SIZE, VALID_FILE_TYPES } from "const";
+import { MAX_FILE_SIZE, VALID_FILE_TYPES } from "../const";
 
 export const checkTypeValidity = (fileType: string): boolean =>
   fileType !== "" &&

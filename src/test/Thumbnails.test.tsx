@@ -1,6 +1,6 @@
 import React from "react";
-import { Thumbnails } from "features";
-import { render, screen } from "utils/testHelpers";
+import { Thumbnails } from "../features";
+import { render, screen } from "../utils/testHelpers";
 
 describe("<Thumbnails>", () => {
   it("should render", () => {

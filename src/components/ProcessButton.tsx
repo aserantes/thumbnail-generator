@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, ButtonText } from "./Common";
-import { Icon } from "components";
-import { selectors } from "store";
+import { Icon } from "../components";
+import { selectors } from "../store";
 import { useSelector } from "react-redux";
 
 interface ProcessButtonProps {
