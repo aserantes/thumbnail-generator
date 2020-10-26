@@ -1,5 +1,5 @@
-import { DefaultRootState } from "./";
-import { checkSizeValidity, checkTypeValidity } from "Utils/fileHelpers";
+import { DefaultRootState } from ".";
+import { checkSizeValidity, checkTypeValidity } from "utils/fileHelpers";
 import { createSelector } from "@reduxjs/toolkit";
 
 export const getState = (state: DefaultRootState) => state;

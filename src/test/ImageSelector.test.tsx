@@ -1,6 +1,6 @@
 import React from "react";
-import { ImageSelector } from "Features/ImageSelector";
-import { render, screen } from "Utils/testHelpers";
+import { ImageSelector } from "features";
+import { render, screen } from "utils/testHelpers";
 
 describe("<ImageSelector />", () => {
   it("should render", () => {
@@ -15,6 +15,7 @@ describe("<ImageSelector />", () => {
     expect(render(<ImageSelector />).asFragment()).toMatchSnapshot();
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it("should show validation error if selected file > 5Mb", () => {});
 
   it("should show validation error if selected file type is not png|jpg", () => {});

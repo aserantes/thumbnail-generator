@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Button, ButtonText } from "./Common";
-import { Icon } from "Components";
-import { VALID_FILE_TYPES } from "Constants";
-import { selectors } from "Store";
+import { Icon } from "components";
+import { VALID_FILE_TYPES } from "const";
+import { selectors } from "store";
 import { useSelector } from "react-redux";
 
 interface BrowseButtonProps {

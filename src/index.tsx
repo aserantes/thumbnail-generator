@@ -2,9 +2,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { GlobalStyle } from "Styles";
+import { GlobalStyle } from "styles";
 import { Provider } from "react-redux";
-import { store } from "Store/index";
+import { store } from "store/index";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

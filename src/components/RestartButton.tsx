@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, ButtonText } from "./Common";
-import { Icon } from "Components";
-import { initialState, setFileToUploadData } from "Store/fileToUploadSlice";
-import { selectors } from "Store";
+import { Icon } from "components";
+import { initialState, setFileToUploadData } from "store/fileToUploadSlice";
+import { selectors } from "store";
 import { useDispatch, useSelector } from "react-redux";
 
 export function RestartButton() {

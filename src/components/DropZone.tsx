@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { DropZoneWrapper, ErrorText, SecondaryText } from "Components/Common";
-import { Icon } from "Components";
-import { MAX_FILE_SIZE_ERROR, VALID_FILE_TYPES_ERROR } from "Constants";
-import { selectors } from "Store";
+import { DropZoneWrapper, ErrorText, SecondaryText } from "components/Common";
+import { Icon } from "components";
+import { MAX_FILE_SIZE_ERROR, VALID_FILE_TYPES_ERROR } from "const";
+import { selectors } from "store";
 import { useSelector } from "react-redux";
 
 interface DropZoneProps {

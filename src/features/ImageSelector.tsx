@@ -5,12 +5,12 @@ import {
   CameraButton,
   DropZone,
   ImageSelectorWrapper,
-} from "Components";
-import { getFileInfo } from "Utils/fileHelpers";
-import { selectors } from "Store";
-import { setFileToUploadData } from "Store/fileToUploadSlice";
+} from "components";
+import { getFileInfo } from "utils/fileHelpers";
+import { selectors } from "store";
+import { setFileToUploadData } from "store/fileToUploadSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useFileTypeAnalizer } from "Hooks/useFileTypeAnalizer";
+import { useFileTypeAnalizer } from "hooks/useFileTypeAnalizer";
 
 export function ImageSelector() {
   const chunkPath = useSelector(selectors.getChunkPath);

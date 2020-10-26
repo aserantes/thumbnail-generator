@@ -1,12 +1,9 @@
 import React from "react";
-import { AppWrapper } from "Components";
-import { Header } from "Components";
-import { ImagePreview } from "Features/ImagePreview";
-import { ImageSelector } from "Features/ImageSelector";
-import { Thumbnails } from "Features/Thumbnails";
-import { selectors } from "Store";
+import { AppWrapper, Header } from "components";
+import { ImagePreview, ImageSelector, Thumbnails } from "features";
+import { selectors } from "store";
 import { useSelector } from "react-redux";
-import { useWindowSize } from "Hooks";
+import { useWindowSize } from "hooks";
 
 export function App() {
   const theme = useSelector(selectors.getTheme);

@@ -1,7 +1,7 @@
 import React from "react";
-import { AppTitle, HeaderWrapper, Icon } from "Components";
-import { initialState, setFileToUploadData } from "Store/fileToUploadSlice";
-import { selectors } from "Store";
+import { AppTitle, HeaderWrapper, Icon } from "components";
+import { initialState, setFileToUploadData } from "store/fileToUploadSlice";
+import { selectors } from "store";
 import { useDispatch, useSelector } from "react-redux";
 
 export function Header() {

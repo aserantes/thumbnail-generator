@@ -2,8 +2,6 @@ export * from "./Common";
 
 export { Header } from "./Header";
 
-export { Notification } from "./Notification";
-
 export { Icon } from "./Icon";
 
 export { BrowseButton } from "./BrowseButton";
