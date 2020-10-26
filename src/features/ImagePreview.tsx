@@ -8,14 +8,14 @@ import {
   Thumbnail,
 } from "../components/Common";
 import { ProcessButton, RestartButton } from "../components";
-import { selectors } from "../store";
+import { getName, getPath, getSize, getType } from "../store/selectors";
 import { useSelector } from "react-redux";
 
 export function ImagePreview() {
-  const name = useSelector(selectors.getName);
-  const type = useSelector(selectors.getType);
-  const size = useSelector(selectors.getSize);
-  const path = useSelector(selectors.getPath);
+  const name = useSelector(getName);
+  const type = useSelector(getType);
+  const size = useSelector(getSize);
+  const path = useSelector(getPath);
   const sizeText = `${(size / 1024).toFixed(2)} Kb`;
 
   return (

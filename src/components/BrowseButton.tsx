@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Button, ButtonText } from "./Common";
 import { Icon } from "./Icon";
 import { VALID_FILE_TYPES } from "../const";
-import { selectors } from "../store";
+import { getTheme } from "../store/selectors";
 import { useSelector } from "react-redux";
 
 interface BrowseButtonProps {
@@ -11,7 +11,7 @@ interface BrowseButtonProps {
 
 export function BrowseButton(props: BrowseButtonProps) {
   const { onFileChange } = props;
-  const theme = useSelector(selectors.getTheme);
+  const theme = useSelector(getTheme);
   const validFileTypes = VALID_FILE_TYPES.join(",");
   const hiddenFileInput = useRef<HTMLInputElement>(null);
   const handleClick = () => {

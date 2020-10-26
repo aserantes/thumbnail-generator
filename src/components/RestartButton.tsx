@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, ButtonText } from "./Common";
 import { Icon } from "../components";
+import { getTheme } from "../store/selectors";
 import { initialState, setFileToUploadData } from "../store/fileToUploadSlice";
-import { selectors } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
 export function RestartButton() {
@@ -10,7 +10,7 @@ export function RestartButton() {
   const handleClick = () => {
     dispatch(setFileToUploadData(initialState));
   };
-  const theme = useSelector(selectors.getTheme);
+  const theme = useSelector(getTheme);
 
   return (
     <Button

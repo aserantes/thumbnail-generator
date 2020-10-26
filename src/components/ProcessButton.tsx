@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, ButtonText } from "./Common";
 import { Icon } from "../components";
-import { selectors } from "../store";
+import { getTheme } from "../store/selectors";
 import { useSelector } from "react-redux";
 
 interface ProcessButtonProps {
@@ -10,7 +10,7 @@ interface ProcessButtonProps {
 
 export function ProcessButton(props: ProcessButtonProps) {
   const { onClick } = props;
-  const theme = useSelector(selectors.getTheme);
+  const theme = useSelector(getTheme);
 
   return (
     <Button buttonColor={theme.colors.primary} role="button" onClick={onClick}>

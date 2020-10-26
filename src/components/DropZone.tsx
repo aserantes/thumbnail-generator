@@ -6,7 +6,12 @@ import {
 } from "../components/Common";
 import { Icon } from "../components";
 import { MAX_FILE_SIZE_ERROR, VALID_FILE_TYPES_ERROR } from "../const";
-import { selectors } from "../store";
+import {
+  getIsFirstLoad,
+  getSizeIsValid,
+  getTheme,
+  getTypeIsValid,
+} from "../store/selectors";
 import { useSelector } from "react-redux";
 
 interface DropZoneProps {
@@ -15,10 +20,10 @@ interface DropZoneProps {
 
 export function DropZone(props: DropZoneProps) {
   const [isInDropZone, setIsInDropZone] = useState(false);
-  const theme = useSelector(selectors.getTheme);
-  const isFirstLoad = useSelector(selectors.getIsFirstLoad);
-  const sizeIsValid = useSelector(selectors.getSizeIsValid);
-  const typeIsValid = useSelector(selectors.getTypeIsValid);
+  const theme = useSelector(getTheme);
+  const isFirstLoad = useSelector(getIsFirstLoad);
+  const sizeIsValid = useSelector(getSizeIsValid);
+  const typeIsValid = useSelector(getTypeIsValid);
   const sizeErrorText = !sizeIsValid && MAX_FILE_SIZE_ERROR;
   const typeErrorText = !typeIsValid && VALID_FILE_TYPES_ERROR;
   const { onFileDrop } = props;

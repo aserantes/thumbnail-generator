@@ -1,11 +1,11 @@
 import React from "react";
 import { AppTitle, HeaderWrapper, Icon } from "../components";
+import { getTheme } from "../store/selectors";
 import { initialState, setFileToUploadData } from "../store/fileToUploadSlice";
-import { selectors } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
 export function Header() {
-  const theme = useSelector(selectors.getTheme);
+  const theme = useSelector(getTheme);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(setFileToUploadData(initialState));

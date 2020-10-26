@@ -6,14 +6,14 @@ import {
   DropZone,
   ImageSelectorWrapper,
 } from "../components";
-import { getFileInfo } from "../utils/fileHelpers";
-import { selectors } from "../store";
+import { getChunkPath } from "../store/selectors";
+import { getFileInfo } from "../helpers";
 import { setFileToUploadData } from "../store/fileToUploadSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useFileTypeAnalizer } from "../hooks/useFileTypeAnalizer";
 
 export function ImageSelector() {
-  const chunkPath = useSelector(selectors.getChunkPath);
+  const chunkPath = useSelector(getChunkPath);
   const [result] = useFileTypeAnalizer(chunkPath);
   const dispatch = useDispatch();
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {

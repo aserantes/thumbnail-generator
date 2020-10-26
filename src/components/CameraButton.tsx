@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Button, ButtonText } from "./Common";
 import { Icon } from "../components";
-import { selectors } from "../store";
+import { getTheme } from "../store/selectors";
 import { useSelector } from "react-redux";
 
 interface CameraButtonProps {
@@ -10,7 +10,7 @@ interface CameraButtonProps {
 
 export function CameraButton(props: CameraButtonProps) {
   const { onFileChange } = props;
-  const theme = useSelector(selectors.getTheme);
+  const theme = useSelector(getTheme);
   const hiddenFileInput = useRef<HTMLInputElement>(null);
   const handleClick = () => {
     hiddenFileInput.current && hiddenFileInput.current.click();

@@ -1,6 +1,6 @@
 import React from "react";
 import { ImagePreview } from "../features";
-import { renderWithRedux, screen } from "../utils/testHelpers";
+import { renderWithRedux, screen } from "../helpers";
 
 describe("<ImagePreview />", () => {
   it("should render", () => {

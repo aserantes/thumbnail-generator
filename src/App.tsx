@@ -1,13 +1,13 @@
 import React from "react";
 import { AppWrapper, Header } from "./components";
 import { ImagePreview, ImageSelector, Thumbnails } from "./features";
-import { selectors } from "./store";
+import { getFileIsValid, getTheme } from "./store/selectors";
 import { useSelector } from "react-redux";
 import { useWindowSize } from "./hooks";
 
 export function App() {
-  const theme = useSelector(selectors.getTheme);
-  const fileIsValid = useSelector(selectors.getFileIsValid);
+  const theme = useSelector(getTheme);
+  const fileIsValid = useSelector(getFileIsValid);
   const { height, width } = useWindowSize();
 
   return (
