@@ -1,4 +1,8 @@
-build/
-coverage/
-tsconfig.json
 node_modules/
+coverage/
+
+build/
+server/
+
+src/serviceWorker.ts
+tsconfig.json

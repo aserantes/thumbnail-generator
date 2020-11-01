@@ -7,6 +7,8 @@ const FileType = require("file-type");
 const sharp = require("sharp");
 const path = require("path");
 const multer = require("multer");
+const { performance } = require("perf_hooks");
+
 const utils = require("./utils");
 const config = require("./config");
 
@@ -20,14 +22,11 @@ app.post(
   upload.single("image"),
   async (req, res, next) => {
     try {
-      // cleanup performance timers if any resulted in errors
-      console.timeEnd("File validation took");
-      console.timeEnd("Thumbnails Generation took");
       console.clear();
 
       // Validations Started
       utils.colorLog("***Validation Started***", "bgBlue");
-      console.time("File validation took");
+      const validationTimerStart = performance.now();
       const file = req.file;
       const body = req.body;
       let thumbSizes = config.defaultThumbSizes;
@@ -125,17 +124,22 @@ app.post(
       }
 
       // Validations Finished
-      utils.colorLog("***Validation Finished***", "bgBlue");
-      console.timeEnd("File validation took");
+      const validationTimerEnd = performance.now();
+      utils.colorLog(
+        `*** Validation Finished in ${
+          validationTimerEnd - validationTimerStart
+        }ms ***`,
+        "bgBlue"
+      );
 
       // Thumbnails Generation Started
       utils.colorLog("***Thumbnails Generation Started***", "bgMagenta");
-      console.time("Thumbnails Generation took");
+      const thumbsnailGenerationTimerStart = performance.now();
 
       const promises = {};
       const results = {};
       async function parallelThumbsProcess() {
-        thumbSizes.forEach((item, index) => {
+        thumbSizes.forEach((item) => {
           const { fit } = options;
           if (
             // horrible forced typeguard... I'm missing typescript already
@@ -146,7 +150,7 @@ app.post(
           )
             promises[`thumb-${item.w}x${item.h}`] = sharp(file.buffer)
               .resize(item.w, item.h, { fit })
-              .toFile(`thumbnails/thumb-${item.w}x${item.h}-${index}.png`);
+              .toFile(`server/thumbnails/thumb-${item.w}x${item.h}.png`);
         });
 
         for (const [key, value] of Object.entries(promises)) {
@@ -157,7 +161,14 @@ app.post(
       }
 
       await parallelThumbsProcess();
-      console.timeEnd("Thumbnails Generation took");
+
+      const thumbsnailGenerationTimerEnd = performance.now();
+      utils.colorLog(
+        `*** thumbsnailGeneration Finished in ${
+          thumbsnailGenerationTimerEnd - thumbsnailGenerationTimerStart
+        }ms ***`,
+        "bgBlue"
+      );
 
       res.send(true);
     } catch (err) {

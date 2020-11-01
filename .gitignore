@@ -1,7 +1,9 @@
 node_modules/
 coverage/
+
 build/
-thumbnails/
+server/build/
+server/thumbnails/
 
 yarn-error.log
 debug.log

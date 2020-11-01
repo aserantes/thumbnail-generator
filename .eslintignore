@@ -1,5 +1,7 @@
-build/
-coverage/
 node_modules/
-src/serviceWorker.ts
+coverage/
+
+build/
 server/
+
+src/serviceWorker.ts
