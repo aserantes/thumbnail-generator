@@ -1,4 +1,7 @@
 node_modules/
 coverage/
 build/
+thumbnails/
+
 yarn-error.log
+debug.log

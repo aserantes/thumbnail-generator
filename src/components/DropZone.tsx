@@ -27,18 +27,22 @@ export function DropZone(props: DropZoneProps) {
   const sizeErrorText = !sizeIsValid && MAX_FILE_SIZE_ERROR;
   const typeErrorText = !typeIsValid && VALID_FILE_TYPES_ERROR;
   const { onFileDrop } = props;
+
   const handleDragEnter = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsInDropZone(true);
   };
+
   const handleDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsInDropZone(false);
   };
+
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     !isInDropZone && setIsInDropZone(true);
   };
+
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setIsInDropZone(false);

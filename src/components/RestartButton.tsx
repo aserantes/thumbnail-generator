@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 export function RestartButton() {
   const dispatch = useDispatch();
+
   const handleClick = () => {
     dispatch(setFileToUploadData(initialState));
   };
+
   const theme = useSelector(getTheme);
 
   return (

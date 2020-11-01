@@ -1,3 +1,4 @@
-build
-coverage
+build/
+coverage/
 tsconfig.json
+node_modules/

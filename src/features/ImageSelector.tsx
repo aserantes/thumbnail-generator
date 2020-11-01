@@ -16,16 +16,16 @@ export function ImageSelector() {
   const chunkPath = useSelector(getChunkPath);
   const [result] = useFileTypeAnalizer(chunkPath);
   const dispatch = useDispatch();
+
   const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
     const file = event.dataTransfer.files && event.dataTransfer.files[0];
     const fileInfo = getFileInfo(file);
-
     fileInfo && dispatch(setFileToUploadData(fileInfo));
   };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const file = event.target.files && event.target.files[0];
     const fileInfo = getFileInfo(file);
-
     fileInfo && dispatch(setFileToUploadData(fileInfo));
   };
 

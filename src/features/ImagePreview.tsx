@@ -22,7 +22,6 @@ export function ImagePreview() {
     <ImagePreviewWrapper data-testid="ImagePreview-wrapper">
       <ImageInfo>
         <Thumbnail alt="Image Preview" src={path} />
-
         <ImageInfoTextBlock>
           <ImageInfoTextItem>
             <strong>Name:&nbsp;</strong> {name}

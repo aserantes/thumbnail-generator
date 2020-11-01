@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 export function Header() {
   const theme = useSelector(getTheme);
   const dispatch = useDispatch();
+
   const handleClick = () => {
     dispatch(setFileToUploadData(initialState));
   };

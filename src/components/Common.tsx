@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 interface ButtonProps {
   buttonColor?: string;
   onClick?: () => void;
+  isLoading?: boolean | null;
 }
 
 export const Button = styled.div<ButtonProps>`

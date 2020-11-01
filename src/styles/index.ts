@@ -17,6 +17,7 @@ export const darkTheme = {
   Then on each feature, deconstruct the theme prop to make it available for components
   (send as prop also, just the specific attribute)
 */
+
 export const lightTheme = {
   colors: {
     text: "#000",

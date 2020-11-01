@@ -12,6 +12,7 @@ export function CameraButton(props: CameraButtonProps) {
   const { onFileChange } = props;
   const theme = useSelector(getTheme);
   const hiddenFileInput = useRef<HTMLInputElement>(null);
+
   const handleClick = () => {
     hiddenFileInput.current && hiddenFileInput.current.click();
   };

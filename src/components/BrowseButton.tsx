@@ -14,6 +14,7 @@ export function BrowseButton(props: BrowseButtonProps) {
   const theme = useSelector(getTheme);
   const validFileTypes = VALID_FILE_TYPES.join(",");
   const hiddenFileInput = useRef<HTMLInputElement>(null);
+
   const handleClick = () => {
     hiddenFileInput.current && hiddenFileInput.current.click();
   };

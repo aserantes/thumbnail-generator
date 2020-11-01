@@ -10,9 +10,11 @@ interface ComponentTitleProps {
 
 export function ComponentTitle(props: ComponentTitleProps) {
   const dispatch = useDispatch();
+
   const handleClick = () => {
     dispatch(setFileToUploadData(initialState));
   };
+
   const { title } = props;
 
   return (
