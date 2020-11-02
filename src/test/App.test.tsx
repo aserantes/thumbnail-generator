@@ -1,10 +1,10 @@
 import React from "react";
 import { App } from "../App";
-import { render, screen } from "../helpers";
+import { renderWithRedux, screen } from "../helpers";
 
 describe("<App />", () => {
   it("should render", () => {
-    render(<App />);
+    renderWithRedux(<App />);
 
     const component = screen.getByTestId("App-wrapper");
 
@@ -12,7 +12,7 @@ describe("<App />", () => {
   });
 
   it("should match snapshot", () => {
-    expect(render(<App />).asFragment()).toMatchSnapshot();
+    expect(renderWithRedux(<App />).asFragment()).toMatchSnapshot();
   });
 
   it("should show ImageSelector if no valid file is selected", () => {});
@@ -20,8 +20,6 @@ describe("<App />", () => {
   it("should show ImagePreview if valid file is selected", () => {});
 
   it("should show Thumbails if fetch is fulfilled", () => {});
-
-  /*    */
 });
 
 /*

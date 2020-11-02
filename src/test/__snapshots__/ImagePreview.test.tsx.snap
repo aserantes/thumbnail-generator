@@ -2,13 +2,89 @@
 
 exports[`<ImagePreview /> should match snapshot 1`] = `
 <DocumentFragment>
-  <section
-    class="css-17ztkzs"
+  <div
+    class="sc-crzoUp sc-fnVYJo sc-bkbjAj eoKvYH gJOtFr fCCFxd"
     data-testid="ImagePreview-wrapper"
   >
-    <div>
-      ImagePreview Component
+    <div
+      class="sc-hKFyIo ihyQnA"
+    >
+      <img
+        alt="Image Preview"
+        class="sc-gKAblj jWASIP"
+        src=""
+      />
+      <div
+        class="sc-eCApGN eDeRTi"
+      >
+        <div
+          class="sc-jSFkmK hUSRvy"
+        >
+          <strong>
+            Name: 
+          </strong>
+           
+        </div>
+        <div
+          class="sc-jSFkmK hUSRvy"
+        >
+          <strong>
+            Type: 
+          </strong>
+           
+        </div>
+        <div
+          class="sc-jSFkmK hUSRvy"
+        >
+          <strong>
+            Size: 
+          </strong>
+           0.00 Kb
+        </div>
+      </div>
     </div>
-  </section>
+    <p
+      class="sc-jrsJCI sc-kEqYlL fTYhRe bPdPvr"
+      hidden=""
+    />
+    <div
+      class="sc-hBMVcZ iQQiiH"
+    >
+      <div
+        class="sc-bdnylx elazSQ"
+        role="button"
+      >
+        <div
+          class="sc-gtssRu jFSpxo"
+        >
+          <i
+            class="fas fa-step-backward"
+          />
+        </div>
+        <div
+          class="sc-pNWxx cpZoGq"
+        >
+          Restart
+        </div>
+      </div>
+      <div
+        class="sc-bdnylx elazSQ"
+        role="button"
+      >
+        <div
+          class="sc-gtssRu jFSpxo"
+        >
+          <i
+            class="fas fa-thumbs-up"
+          />
+        </div>
+        <div
+          class="sc-pNWxx cpZoGq"
+        >
+          Process
+        </div>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

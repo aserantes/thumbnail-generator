@@ -12,7 +12,7 @@ export function Thumbnails() {
           <Thumbnail2
             alt="Image Preview"
             height="120px"
-            src={`/thumbnails/thumb-120x120.png?t=${new Date().getTime()}"`}
+            src={`/thumbnails/thumb-120x120.png?t=${Date.now()}"`}
             width="120px"
           />
         </a>
@@ -22,7 +22,7 @@ export function Thumbnails() {
           <Thumbnail2
             alt="Image Preview"
             height="120px"
-            src={`/thumbnails/thumb-160x120.png?t=${new Date().getTime()}"`}
+            src={`/thumbnails/thumb-160x120.png?t=${Date.now()}"`}
             width="160px"
           />
         </a>
@@ -32,7 +32,7 @@ export function Thumbnails() {
           <Thumbnail2
             alt="Image Preview"
             height="300px"
-            src={`/thumbnails/thumb-400x300.png?t=${new Date().getTime()}"`}
+            src={`/thumbnails/thumb-400x300.png?t=${Date.now()}"`}
             width="400px"
           />
         </a>

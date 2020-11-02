@@ -88,6 +88,8 @@ export const Thumbnail2 = styled.img`
   box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
     4px -4px 8px #ddd;
   margin: 8px;
+  max-width: 300px;
+  max-height: 225px;
 `;
 
 export const Title = styled.div`
@@ -171,8 +173,8 @@ type AppWrapperProps = {
 export const AppWrapper = styled(Wrapper).attrs(
   (props: AppWrapperProps) => props
 )<AppWrapperProps>`
-  max-height: 640px;
   max-width: 640px;
+  min-height: 420px;
   color: ${(props) => props.fontColor};
   flex-direction: column;
   background-color: ${(props) => props.backGroundColor};

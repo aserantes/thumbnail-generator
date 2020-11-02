@@ -1,10 +1,10 @@
 import React from "react";
 import { ImageSelector } from "../features";
-import { render, screen } from "../helpers";
+import { renderWithRedux, screen } from "../helpers";
 
 describe("<ImageSelector />", () => {
   it("should render", () => {
-    render(<ImageSelector />);
+    renderWithRedux(<ImageSelector />);
 
     const component = screen.getByTestId("ImageSelector-wrapper");
 
@@ -12,7 +12,7 @@ describe("<ImageSelector />", () => {
   });
 
   it("should match snapshot", () => {
-    expect(render(<ImageSelector />).asFragment()).toMatchSnapshot();
+    expect(renderWithRedux(<ImageSelector />).asFragment()).toMatchSnapshot();
   });
 
   // eslint-disable-next-line jest/expect-expect
@@ -33,7 +33,7 @@ it("should match snapshot", () => {});
   test("should upload the file", () => {
     const file = new File(["hello"], "hello.png", { type: "image/png" });
 
-    render(<input data-testid="element" type="file" />);
+    renderWithRedux(<input data-testid="element" type="file" />);
 
     const input = screen.getByTestId("element") as HTMLInputElement;
 

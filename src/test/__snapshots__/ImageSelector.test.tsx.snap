@@ -2,15 +2,90 @@
 
 exports[`<ImageSelector /> should match snapshot 1`] = `
 <DocumentFragment>
-  <section
-    class="css-1w5jlbf"
+  <div
+    class="sc-crzoUp sc-fnVYJo sc-fFSRdu eoKvYH gJOtFr flIyJY"
     data-testid="ImageSelector-wrapper"
   >
-    <input
-      class="css-0"
-      data-testid="file-input"
-      type="file"
-    />
-  </section>
+    <div
+      class="sc-crzoUp sc-dIsAE eoKvYH klLeyi"
+      data-testid="file-drop-zone"
+    >
+      <p
+        class="sc-jrsJCI sc-kEqYlL fTYhRe bPdPvr"
+        hidden=""
+      >
+        Max image size is 5 Mb.
+      </p>
+      <p
+        class="sc-jrsJCI sc-kEqYlL fTYhRe bPdPvr"
+        hidden=""
+      >
+        Valid file types are: .jpg | .png.
+      </p>
+      <p
+        class="sc-jrsJCI fTYhRe"
+      >
+        Drag&Drop your image here
+      </p>
+      <p
+        class="sc-jrsJCI fTYhRe"
+      >
+        Or...
+      </p>
+    </div>
+    <div
+      class="sc-hBMVcZ iQQiiH"
+    >
+      <div
+        class="sc-bdnylx elazSQ"
+        role="button"
+      >
+        <div
+          class="sc-gtssRu jFSpxo"
+        >
+          <i
+            class="fas fa-folder-open"
+          />
+        </div>
+        <div
+          class="sc-pNWxx cpZoGq"
+        >
+          Browse
+        </div>
+        <input
+          accept=".jpg,.png"
+          data-testid="file-input"
+          hidden=""
+          id="inputFile"
+          type="file"
+        />
+      </div>
+      <div
+        class="sc-bdnylx elazSQ"
+        role="button"
+      >
+        <div
+          class="sc-gtssRu jFSpxo"
+        >
+          <i
+            class="fas fa-camera"
+          />
+        </div>
+        <div
+          class="sc-pNWxx cpZoGq"
+        >
+          Camera
+        </div>
+        <input
+          accept="image/*"
+          capture="user"
+          data-testid="file-input"
+          hidden=""
+          id="inputFile"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

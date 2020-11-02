@@ -22,7 +22,13 @@ export function Header() {
       >
         Thumbs App
       </AppTitle>
-      <Icon className="fab fa-github" iconColor="#ccc" iconSize={40} />
+      <a
+        href="https://github.com/aserantes/thumbnail-generator"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Icon className="fab fa-github" iconColor="#ccc" iconSize={40} />
+      </a>
     </HeaderWrapper>
   );
 }

@@ -62,12 +62,15 @@ export const common = css`
     box-sizing: border-box;
   }
   #root {
-    height: 100vh;
     justify-content: center;
   }
   div {
     display: flex;
     box-sizing: border-box;
+  }
+  a,
+  li {
+    text-decoration: none !important;
   }
 `;
 

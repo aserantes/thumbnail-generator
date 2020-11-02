@@ -2,13 +2,69 @@
 
 exports[`<Thumbnails> should match snapshot 1`] = `
 <DocumentFragment>
-  <section
-    class="css-119czso"
+  <div
+    class="sc-crzoUp sc-fnVYJo sc-iemXMA eoKvYH gJOtFr ecHSRt"
     data-testid="Thumbnails-wrapper"
   >
-    <div>
-      Thumbnails Component
+    <div
+      style="position: absolute; margin: auto; top: 120px;"
+    >
+      <div
+        class="sc-gtssRu eivXDK"
+      >
+        <i
+          class="fas fa-thumb"
+        />
+      </div>
     </div>
-  </section>
+    <div
+      class="sc-hKFyIo ihyQnA"
+    >
+      <a
+        download=""
+        href="thumb-120x120.png"
+      >
+        <img
+          alt="Image Preview"
+          class="sc-iCoHVE eIWUwO"
+          height="120px"
+          src="/thumbnails/thumb-120x120.png?t=undefined\\""
+          width="120px"
+        />
+      </a>
+    </div>
+    <div
+      class="sc-hKFyIo ihyQnA"
+    >
+      <a
+        download=""
+        href="thumb-160x120.png"
+      >
+        <img
+          alt="Image Preview"
+          class="sc-iCoHVE eIWUwO"
+          height="120px"
+          src="/thumbnails/thumb-160x120.png?t=undefined\\""
+          width="160px"
+        />
+      </a>
+    </div>
+    <div
+      class="sc-hKFyIo ihyQnA"
+    >
+      <a
+        download=""
+        href="thumb-400x300.png"
+      >
+        <img
+          alt="Image Preview"
+          class="sc-iCoHVE eIWUwO"
+          height="300px"
+          src="/thumbnails/thumb-400x300.png?t=undefined\\""
+          width="400px"
+        />
+      </a>
+    </div>
+  </div>
 </DocumentFragment>
 `;

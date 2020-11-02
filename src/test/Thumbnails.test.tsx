@@ -1,10 +1,12 @@
 import React from "react";
 import { Thumbnails } from "../features";
-import { render, screen } from "../helpers";
+import { renderWithRedux, screen } from "../helpers";
 
 describe("<Thumbnails>", () => {
+  Date.now = jest.fn(() => 1482363367071);
+
   it("should render", () => {
-    render(<Thumbnails />);
+    renderWithRedux(<Thumbnails />);
 
     const component = screen.getByTestId("Thumbnails-wrapper");
 
@@ -12,6 +14,6 @@ describe("<Thumbnails>", () => {
   });
 
   it("should match snapshot", () => {
-    expect(render(<Thumbnails />).asFragment()).toMatchSnapshot();
+    expect(renderWithRedux(<Thumbnails />).asFragment()).toMatchSnapshot();
   });
 });
