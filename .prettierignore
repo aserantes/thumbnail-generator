@@ -2,7 +2,7 @@ node_modules/
 coverage/
 
 build/
-server/
+server/build
 
 src/serviceWorker.ts
 tsconfig.json

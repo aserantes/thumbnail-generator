@@ -33,30 +33,32 @@ export function App() {
       data-testid="App-wrapper"
       fontColor={theme.colors.text}
     >
-      <div // make this a component Debug, along with state info and such
-        style={{
-          backgroundColor: "#000",
-          flexDirection: "column",
-          opacity: 0.6,
-          color: "#fff",
-          position: "absolute",
-          left: "50%",
-          transform: "translate(-50%, 0)",
-          top: 0,
-        }}
-      >
-        <div>{`w:${width} h:${height} - ${fileIsValid}`}</div>
-        <div>fileIsValid: {fileIsValid ? "yes" : "no"}</div>
-        <div>
-          <input
-            checked={bypassValidation}
-            id="check"
-            type="checkbox"
-            onChange={handleChange}
-          />
-          <label htmlFor="check">disable FE validation</label>
+      {false && (
+        <div // TODO make this a separate component Debug, along with state info and such with a toggle
+          style={{
+            backgroundColor: "#000",
+            flexDirection: "column",
+            opacity: 0.6,
+            color: "#fff",
+            position: "absolute",
+            left: "50%",
+            transform: "translate(-50%, 0)",
+            top: 0,
+          }}
+        >
+          <div>{`w:${width} h:${height}`}</div>
+          <div>fileIsValid: {fileIsValid ? "yes" : "no"}</div>
+          <div>
+            <input
+              checked={bypassValidation}
+              id="check"
+              type="checkbox"
+              onChange={handleChange}
+            />
+            <label htmlFor="check"> bypass validation</label>
+          </div>
         </div>
-      </div>
+      )}
       <Header />
       {currentComponent()}
     </AppWrapper>

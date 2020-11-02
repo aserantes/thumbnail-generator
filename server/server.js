@@ -25,7 +25,7 @@ app.post(
       console.clear();
 
       // Validations Started
-      utils.colorLog("***Validation Started***", "bgBlue");
+      utils.colorLog("*** Validation Started ***", "bgBlue");
       const validationTimerStart = performance.now();
       const file = req.file;
       const body = req.body;
@@ -133,7 +133,7 @@ app.post(
       );
 
       // Thumbnails Generation Started
-      utils.colorLog("***Thumbnails Generation Started***", "bgMagenta");
+      utils.colorLog("*** Thumbnails Generation Started ***", "bgMagenta");
       const thumbsnailGenerationTimerStart = performance.now();
 
       const promises = {};
@@ -149,8 +149,9 @@ app.post(
             fit === "inside"
           )
             promises[`thumb-${item.w}x${item.h}`] = sharp(file.buffer)
+              .rotate()
               .resize(item.w, item.h, { fit })
-              .toFile(`server/thumbnails/thumb-${item.w}x${item.h}.png`);
+              .toFile(`src/thumbnails/thumb-${item.w}x${item.h}.png`);
         });
 
         for (const [key, value] of Object.entries(promises)) {
@@ -167,7 +168,7 @@ app.post(
         `*** thumbsnailGeneration Finished in ${
           thumbsnailGenerationTimerEnd - thumbsnailGenerationTimerStart
         }ms ***`,
-        "bgBlue"
+        "bgMagenta"
       );
 
       res.send(true);
@@ -177,18 +178,11 @@ app.post(
   }
 );
 
-// serve the client build folder
-app.use(express.static(path.join(__dirname, "build")));
-
-// serve the thumbnails folder
-app.use(express.static(path.join(__dirname, "thumbnails")));
-
-// on requests at root, points at index.html of client build
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// serve the thumbnails folder in which sharp is dumping the generated images
+app.use("/thumbnails", express.static("src/thumbnails"));
 
 app.use((err, req, res, next) => {
+  // catch all errors, log in red, and send to client
   utils.colorLog(err.message || err, "fgRed");
   res.status(err.status || 500).send(err.message || err);
 });

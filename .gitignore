@@ -3,7 +3,6 @@ coverage/
 
 build/
 server/build/
-server/thumbnails/
 
 yarn-error.log
 debug.log

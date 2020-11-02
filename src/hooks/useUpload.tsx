@@ -37,7 +37,8 @@ export function useUpload() {
         try {
           response = await axios.post("/generateThumbnails", formData, config);
         } catch (error) {
-          setErrorMsg(error);
+          console.log(error);
+          setErrorMsg(error.message);
           setIsLoading(false);
         }
       }

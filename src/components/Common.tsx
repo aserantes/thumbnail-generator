@@ -83,6 +83,13 @@ export const Thumbnail = styled.img`
   margin: 8px;
 `;
 
+export const Thumbnail2 = styled.img`
+  border-radius: 8px;
+  box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
+    4px -4px 8px #ddd;
+  margin: 8px;
+`;
+
 export const Title = styled.div`
   font-size: 24px;
   align-items: center;
@@ -218,6 +225,11 @@ export const ImageSelectorWrapper = styled(NeumorphicWrapper)`
 export const ImagePreviewWrapper = styled(NeumorphicWrapper)`
   flex-direction: column;
   justify-content: space-between;
+`;
+
+export const ThumbnailsWrapper = styled(NeumorphicWrapper)`
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const HeaderWrapper = styled(NeumorphicWrapper)`
