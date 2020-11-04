@@ -138,6 +138,7 @@ app.post(
 
       const promises = {};
       const results = {};
+
       async function parallelThumbsProcess() {
         thumbSizes.forEach((item) => {
           const { fit } = options;
@@ -151,7 +152,8 @@ app.post(
             promises[`thumb-${item.w}x${item.h}`] = sharp(file.buffer)
               .rotate()
               .resize(item.w, item.h, { fit })
-              .toFile(`src/thumbnails/thumb-${item.w}x${item.h}.png`);
+              .toFile(`thumbnails/thumb-${item.w}x${item.h}.png`)
+              .catch((err) => next(err));
         });
 
         for (const [key, value] of Object.entries(promises)) {
@@ -160,7 +162,6 @@ app.post(
 
         return results;
       }
-
       await parallelThumbsProcess();
 
       const thumbsnailGenerationTimerEnd = performance.now();
@@ -178,8 +179,16 @@ app.post(
   }
 );
 
-// serve the thumbnails folder in which sharp is dumping the generated images
-app.use("/thumbnails", express.static("src/thumbnails"));
+// serve the thumbnails folder
+app.use("/thumbnails", express.static(path.join(__dirname, "thumbnails")));
+
+// serve react build
+app.use(express.static(path.join(__dirname, "build")));
+
+// direct root get calls to index.html at build
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.use((err, req, res, next) => {
   // catch all errors, log in red, and send to client
