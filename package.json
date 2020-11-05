@@ -58,6 +58,7 @@
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "start": "yarn build && open-cli http://localhost:4000 && yarn server",
     "server": "cd server && nodemon server.js",
+    "heroku-postbuild": "yarn build && yarn postbuild && yarn server",
     "postbuild": "shx rm -rf server/build && shx cp -r build server && shx rm -rf build",
     "build": "react-scripts build",
     "client": "react-scripts start",

@@ -74,7 +74,7 @@ export const ImageInfoTextItem = styled.div`
   max-width: 300px;
 `;
 
-export const Thumbnail = styled.img`
+export const PreviewThumbnail = styled.img`
   border-radius: 8px;
   box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
     4px -4px 8px #ddd;
@@ -83,7 +83,7 @@ export const Thumbnail = styled.img`
   margin: 8px;
 `;
 
-export const Thumbnail2 = styled.img`
+export const ResultsThumbnail = styled.img`
   border-radius: 8px;
   box-shadow: -2px 2px 4px #444, -4px 4px 8px #444, 2px -2px 4px #ddd,
     4px -4px 8px #ddd;

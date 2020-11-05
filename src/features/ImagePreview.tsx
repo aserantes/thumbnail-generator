@@ -6,7 +6,7 @@ import {
   ImageInfoTextBlock,
   ImageInfoTextItem,
   ImagePreviewWrapper,
-  Thumbnail,
+  PreviewThumbnail,
 } from "../components/Common";
 import { ProcessButton, RestartButton } from "../components";
 import { getName, getPath, getSize, getType } from "../store/selectors";
@@ -36,7 +36,7 @@ export function ImagePreview() {
   return (
     <ImagePreviewWrapper data-testid="ImagePreview-wrapper">
       <ImageInfo>
-        <Thumbnail alt="Image Preview" src={path} />
+        <PreviewThumbnail alt="Image Preview" src={path} />
         <ImageInfoTextBlock>
           <ImageInfoTextItem>
             <strong>Name:&nbsp;</strong> {name}

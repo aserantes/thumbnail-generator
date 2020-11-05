@@ -22,118 +22,115 @@ app.post(
   upload.single("image"),
   async (req, res, next) => {
     try {
-      console.clear();
+      utils.colorLog(`request received at /generateThumbnails`, "bright");
 
-      // Validations Started
-      utils.colorLog("*** Validation Started ***", "bgBlue");
+      // validation start
+      utils.colorLog(`validation started`, "bgBlue");
       const validationTimerStart = performance.now();
       const file = req.file;
       const body = req.body;
       let thumbSizes = config.defaultThumbSizes;
       let options = config.defaultOptions;
 
-      // first make sure the form has a file
+      // check for file existence
       if (!file) {
         throw {
-          status: "400",
-          message: "uploaded form is missing a file to process",
+          status: 400,
+          message: `request does not contain a file to process`,
         };
       }
 
-      const fileExt = file.mimetype;
-      utils.colorLog(
-        `received a new file with extension "${fileExt}"`,
-        "fgCyan"
-      );
+      utils.colorLog(`request contains a file to process`, "fgGreen");
 
-      // check if an optional thumbSizes array exists in the form, if it does, check its syntax validity or throw an error
+      // check for optional thumbSizes parameter existence and validity
       if (body && body.thumbSizes) {
-        utils.colorLog(`received an optional item thumbSizes`, "fgCyan");
+        utils.colorLog(
+          `request contains optional parameter "thumbSizes"`,
+          "fgCyan"
+        );
         const parsedThumbSizes = JSON.parse(body.thumbSizes);
         const thumbSizesIsValid = utils.hasValidThumbSizes(parsedThumbSizes);
         if (!thumbSizesIsValid) {
           throw {
             status: 400,
-            message:
-              "included thumbSizes array has an invalid syntax. It must be [{w: number, h:number},{w: number, h:number}...]",
+            message: `"thumbSizes" is invalid, must be of type {w: number, h: number}[]`,
           };
         } else {
-          utils.colorLog(`thumbSizes array is valid`, "fgGreen");
+          utils.colorLog(`"thumbSizes" is valid.`, "fgGreen");
           thumbSizes = parsedThumbSizes;
         }
       } else {
         utils.colorLog(
-          `optional array thumbSizes was not found, defaults will be used`,
+          `request does not contain optional parameter "thumbSizes", default will be used`,
           "fgYellow"
         );
       }
 
-      // check if an optional imageFitMode array exists in the form, if it does, check its syntax validity or throw an error
+      // check for optional imageFitMode parameter's existence and validity
       if (body && body.imageFitMode) {
-        utils.colorLog(`received an optional item imageFitMode`, "fgCyan");
+        utils.colorLog(
+          `request contains optional parameter "imageFitMode"`,
+          "fgCyan"
+        );
         const { imageFitMode } = body;
         const imageFitModeIsValid = utils.hasValidImageFitMode(imageFitMode);
         if (!imageFitModeIsValid) {
           throw {
             status: 400,
-            message:
-              "included imageFitMode is invalid. It must be one of ['cover', 'contain', 'fill', 'inside']",
+            message: `"imageFitMode" is invalid, must be one of "cover", "contain", "fill" or "inside"`,
           };
         } else {
-          utils.colorLog(`imageFitMode is valid`, "fgGreen");
+          utils.colorLog(`"imageFitMode" is valid`, "fgGreen");
           options = { ...options, fit: imageFitMode };
         }
       } else {
         utils.colorLog(
-          `optional imageFitMode was not found, default will be used`,
+          `request does not contain optional parameter "imageFitMode", default will be used`,
           "fgYellow"
         );
       }
 
-      // get the file signature from the first few bytes of the blob and get the real file extension from it
+      const fileExt = file.mimetype;
+      utils.colorLog(`file extension is "${fileExt}"`, "fgCyan");
+
+      // get the file signature from the first few bytes of its blob and get the real file extension from it
       const buffer = file.buffer.slice(0, 32);
       const fileInfo = await FileType.fromBuffer(buffer);
       const fileType = fileInfo.ext;
       utils.colorLog(`real file type is "${fileType}"`, "fgCyan");
 
-      // validate real type and send error if it fails
+      // validate real type and throw error if it fails
       const hasValidType = utils.hasValidType(fileType);
       if (hasValidType) {
-        utils.colorLog(`type validation succeeded`, "fgGreen");
+        utils.colorLog(`file type is valid`, "fgGreen");
       } else {
         throw {
           status: 415,
-          message: "type validation failed, file must be either jpg or png",
+          message: "file type is invalid, must be either jpg or png",
         };
       }
 
-      // validate file size and send error if it fails
+      // validate file size and throw error if it fails
       const fileSize = file.size;
       const hasValidSize = utils.hasValidSize(fileSize);
       if (hasValidSize) {
-        utils.colorLog(`size validation succeeded`, "fgGreen");
+        utils.colorLog(`size is valid`, "fgGreen");
       } else {
-        utils.colorLog(
-          `size validation failed, file must be smaller than 5mb`,
-          "fgRed"
-        );
         throw {
-          status: "413",
+          status: 413,
           message: "size validation failed, file must be smaller than 5mb",
         };
       }
 
-      // Validations Finished
+      // validation finish
       const validationTimerEnd = performance.now();
       utils.colorLog(
-        `*** Validation Finished in ${
-          validationTimerEnd - validationTimerStart
-        }ms ***`,
+        `validation finished in ${validationTimerEnd - validationTimerStart}ms`,
         "bgBlue"
       );
 
-      // Thumbnails Generation Started
-      utils.colorLog("*** Thumbnails Generation Started ***", "bgMagenta");
+      // thumbnails generation start
+      utils.colorLog("thumbnails generation started", "bgMagenta");
       const thumbsnailGenerationTimerStart = performance.now();
 
       const promises = {};
@@ -164,11 +161,12 @@ app.post(
       }
       await parallelThumbsProcess();
 
+      // thumbnails generation finish
       const thumbsnailGenerationTimerEnd = performance.now();
       utils.colorLog(
-        `*** thumbsnailGeneration Finished in ${
+        `thumbsnail generation finished in ${
           thumbsnailGenerationTimerEnd - thumbsnailGenerationTimerStart
-        }ms ***`,
+        }ms`,
         "bgMagenta"
       );
 
@@ -179,13 +177,13 @@ app.post(
   }
 );
 
-// serve the thumbnails folder
+// serve thumbnails folder
 app.use("/thumbnails", express.static(path.join(__dirname, "thumbnails")));
 
 // serve react build
 app.use(express.static(path.join(__dirname, "build")));
 
-// direct root get calls to index.html at build
+// direct root get calls to index.html at build folder
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
