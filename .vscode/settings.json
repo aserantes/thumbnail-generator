@@ -1,12 +1,8 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.fontFamily": "Cascadia Code PL",
   "editor.tabSize": 2,
   "editor.suggestSelection": "first",
-
-  "terminal.integrated.shell.windows": "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-  "terminal.integrated.fontFamily": "Cascadia Code PL",
 
   "explorer.confirmDragAndDrop": false,
 
